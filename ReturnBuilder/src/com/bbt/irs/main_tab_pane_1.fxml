@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="tabPane1" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml"  fx:controller="com.bbt.irs.MainTabPane1">
+     
+    <tabs>
+       <!-- <Tab fx:id="personalInfoTab" >
+            
+        </Tab>
+        <Tab fx:id="contactInfoTab" >
+            
+        </Tab>
+        <Tab fx:id="workInfoTab" >
+            
+        </Tab>
+        <Tab fx:id="otherInfoTab" >
+            
+        </Tab>
+        <Tab fx:id="spouseTab" >
+            
+        </Tab>
+        <Tab fx:id="dependantTab" >
+            
+        </Tab>
+        <Tab fx:id="photoTab" >
+            
+        </Tab>
+        <Tab fx:id="signatureTab" >
+            
+        </Tab>
+        <Tab fx:id="fingerPrintTab" >
+            
+        </Tab>                        
+        <Tab fx:id="summaryTab" >
+            
+        </Tab> -->
+    </tabs>
+    
+     
+</TabPane>
