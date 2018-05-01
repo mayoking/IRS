@@ -1,0 +1,77 @@
+#viewGrid,#gridnewuser,borderPanecss,#print,#gridAdmSetup,#grid4Contact,#workInfoGrid,#spouseGrid,#dependantGrid,#Indu,#grid,
+#gridPanecss,#workinfogrid,#contactgrid,#othergrid,#sumSp,#sumWi,#sumPi,#sumCi,#sumOi,#sumPc,#stupidvbox,#comboBox{
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 15;
+}
+
+
+#tabanchor {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-color: linear-gradient(to bottom, #b5bcc6, #dee3e4);
+    -fx-padding: 15;
+}
+
+/*#gridPanecss .text-field {
+    -fx-skin: "com.sun.javafx.scene.control.skin.TextFieldSkin";
+    -fx-background-color: -fx-shadow-highlight-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 3, 2, 2;
+    -fx-padding: 3 5 3 5;
+    -fx-text-fill: -fx-text-inner-color;
+    -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
+    -fx-cursor: text;
+    -fx-scale-x:1;
+    -fx-scale-y:1;
+    
+}*/
+
+.TextField {
+    -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1 0 1 1;
+    -fx-padding: 1 3 1 3;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.TextField:focused {
+   -fx-background-color: -fx-text-box-border, -fx-control-inner-background;
+   -fx-background-insets: 0, 1 0 1 1;
+    
+}
+
+.Button {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 5 5 0, 0 4 4 0, 0 3 3 0;
+}
+
+.Button:focused {
+    -fx-color: -fx-focused-base;
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 5 5 0, 0 4 4 0, 0 3 3 0;
+}
+
+.combo-down-arrow {
+    -fx-background-color: #919191;
+    -fx-padding: 0.666667em 0.416667em 0.0em 0.416667em;  /* 8 5 0 5 */
+    -fx-shape: "M0 0 L1 0 L.5 1 Z";
+    -fx-effect: innershadow( two-pass-box , rgba(0,0,0,0.6) , 4, 0.0 , 0 , 1 );
+}
+
+.comboFocus{
+        -fx-border-color:-fx-focus-color;       
+        -fx-border-insets: -1;
+        -fx-border-radius: 0 5 5 0
+}
+.comboFocusOut{
+        -fx-border-color:transparent;   
+        -fx-border-insets: 0;
+        -fx-border-radius: 0 5 5 0
+}
