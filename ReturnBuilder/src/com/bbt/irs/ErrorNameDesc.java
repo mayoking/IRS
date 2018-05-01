@@ -17,6 +17,7 @@ public interface ErrorNameDesc {
     public static final String LOAD_HEADER_FORM_ERROR = "Unable to Load Headers' Form";
     public static final String ERROR = "Error";
     public static final String LOGGERNAME = "IRS";
+     public static final String TEST = "TEST";
 
     //public static final String 
 //    public static final String FIELD_BLANK = "Field can not be blank";
