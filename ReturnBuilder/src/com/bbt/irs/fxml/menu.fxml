@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import com.fasyl.lasrra.fx.*?>
+<?import javafx.scene.text.*?>
+
+<Accordion id="menuContent" xmlns:fx="http://javafx.com/fxml" fx:controller="com.bbt.irs.controller.MenuController">
+
+    <expandedPane>
+        <TitledPane fx:id="x2" animated="false" text="Enrollment">
+            <graphic>
+                <ImageView >
+                    <Image url="@/com/fasyl/lasrra/fx/enrollment.png" />
+                </ImageView>
+            </graphic>
+                                      
+            <content>
+                 <VBox alignment="TOP_CENTER" id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                        <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#processNew" prefWidth="175.0" text="New       " >
+                            <graphic>
+                                <ImageView >
+                                    <Image url="@/com/fasyl/lasrra/fx/new.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button layoutX="12.0" layoutY="70.0" mnemonicParsing="false" prefWidth="175.0" text="Children (0-15)" wrapText="true" onAction="#processMinor" >
+                            <graphic>
+                                <ImageView >
+                                    <Image url="@/com/fasyl/lasrra/fx/minor.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button layoutX="12.0" layoutY="126.0" mnemonicParsing="false" wrapText="true" onAction="#processOnlineUpdate" prefWidth="175.0" text="Online Registration" >
+                            <graphic>
+                                <ImageView >
+                                    <Image url="@/com/fasyl/lasrra/fx/online.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                   
+                 </VBox>
+               
+            </content>
+        </TitledPane>
+    </expandedPane>
+    <panes>
+        <fx:reference source="x2" />
+        <TitledPane fx:id="x1" animated="true" minWidth="114.0" prefHeight="360.0" prefWidth="114.0" text="Setup">
+            <graphic>
+                <ImageView >
+                    <Image url="@/com/fasyl/lasrra/fx/setup.png" />
+                </ImageView>
+            </graphic>
+            <content>
+                <VBox alignment="TOP_CENTER" id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                    <Button  mnemonicParsing="false" onAction="#processNewUser" prefWidth="175.0" text="User Setup" prefHeight="40">
+                        <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/usersetup.png" />
+                            </ImageView>
+                        </graphic>   
+                    </Button>  
+                    <Button mnemonicParsing="false" onAction="#processAdminSetup" prefWidth="175.0" text="Manage Users" prefHeight="40" >
+                   
+                        <graphic >
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/adminsetup.png"  />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#processPasswordChange" prefWidth="175.0" text="Change Pawd" prefHeight="40">
+                        <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/changePassword.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>                  
+                    <Button mnemonicParsing="false" onAction="#viewUsers" prefWidth="175.0" text="View Users" prefHeight="40">
+                        <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/Users.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </VBox>
+            </content>
+        </TitledPane>
+        <TitledPane fx:id="x3" animated="false" minWidth="114.0" prefHeight="360.0" prefWidth="114.0" text="Data Sync">
+            <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/DataSync.png" />
+                            </ImageView>
+                        </graphic>
+                   
+            <content>
+                <VBox alignment="TOP_CENTER" id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                        <Button disable="true" onAction="#processSyncAuto" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefWidth="172.0" text="Auto" >
+                            <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/moveData.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>   
+                        <Button disable="true" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" prefWidth="175.0" text=" Manual" onAction="#processSync" >
+                              <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/moveData.png" />
+                            </ImageView>
+                        </graphic>
+                        </Button>               
+                </VBox>
+            </content>
+        </TitledPane>
+        <TitledPane fx:id="x4" animated="false" text="App Update">
+            <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/appupdate.png" />
+                            </ImageView>
+                        </graphic>
+            <content>
+                <VBox alignment="TOP_CENTER" id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                        <Button layoutX="14.0" layoutY="21.0" onAction="#processSyncUpdate" mnemonicParsing="false" prefWidth="174.0" text="Check Update" >
+                          <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/CheckUpdate.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>    
+                        <Button layoutX="14.0" layoutY="58.0" onAction="#processSyncUpdate" mnemonicParsing="false" prefWidth="172.0" wrapText="true" text="Install new Version" >
+                        <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/InstallUpdate.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>    
+                </VBox>
+               
+            </content>
+        </TitledPane>
+        <TitledPane fx:id="x5" animated="false" text="Help">
+            <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/help.png" />
+                            </ImageView>
+                        </graphic>
+            <content>
+                 <VBox alignment="TOP_CENTER" id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                        <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" prefWidth="174.0" text="help">
+                          <graphic>
+                            <ImageView >
+                                <Image url="@/com/fasyl/lasrra/fx/Guilde.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>    
+                                      <!-- <ImageView fx:id="imageView">
+      <image>
+        <Image url="@/com/fasyl/lasrra/fx/menu.jpg" preserveRatio="false" smooth="false" fx:id="image" />
+      </image>
+    </ImageView>-->
+        
+                 </VBox>
+                
+            </content>
+        </TitledPane>
+    </panes>
+                
+</Accordion>

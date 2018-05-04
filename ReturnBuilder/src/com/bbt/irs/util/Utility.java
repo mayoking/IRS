@@ -148,19 +148,21 @@ public class Utility {
     }
 
     public static String convertExcelCellToCoordinate(String cellName) {
-        int xCordinate = Utility.convertAlphabetToNumber(cellName.substring(0, 1));
-        int yCoordinate = Integer.valueOf(cellName.substring(1));
+        int index = getCellNoIndex(cellName);
+        System.out.println("test " + index);
+        int xCordinate = NumberIndexToColumnIndex(cellName.substring(0, index));
+        int yCoordinate = Integer.valueOf(cellName.substring(index));
         String coordinate = xCordinate + "," + yCoordinate;
+        System.out.println("coordinate " + coordinate);
         return coordinate;
     }
 
-    public static Pair convertExcelCellToPair(String cellName) {
-
-        int xCordinate = Utility.convertAlphabetToNumber(cellName.substring(0, 1));
-        int yCoordinate = Integer.valueOf(cellName.substring(1));
+    public static Pair convertExcelCellToPair(String cellNo) {
+        int index = getCellNoIndex(cellNo);
+        int xCordinate = Utility.NumberIndexToColumnIndex(cellNo.substring(0, index));
+        int yCoordinate = Integer.valueOf(cellNo.substring(index));
         System.out.printf("xcorodinate is %s yCoordinate is  ", xCordinate, yCoordinate);
-        //String coordinate = xCordinate+","+yCoordinate;
-        Pair pair = new Pair(yCoordinate - 1, xCordinate - 1);
+        Pair pair = new Pair(yCoordinate - 1, xCordinate);
         return pair;
     }
 
@@ -171,7 +173,7 @@ public class Utility {
     }
 
     public static byte[] convertDocument2Byte(Document doc) {
-         byte[] array =null;
+        byte[] array = null;
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             StreamResult result = new StreamResult(bos);
@@ -185,11 +187,11 @@ public class Utility {
         } catch (TransformerException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return array;
     }
-    
-     public static int NumberIndexToColumnIndex(String columnName) {
+
+    public static int NumberIndexToColumnIndex(String columnName) {
         columnName = columnName.toUpperCase();
         int value = 0;
         for (int i = 0; i < columnName.length(); i++) {
@@ -198,4 +200,41 @@ public class Utility {
         }
         return value - 1;
     }
+
+    public static int getCellNoIndex(final CharSequence input) {
+        int i;
+        for (i = 0; i < input.length(); i++) {
+            final char c = input.charAt(i);
+            if (c > 47 && c < 58) {
+                break;
+            }
+        }
+        return i;
+    }
+
+    public String getLabel(String cellno) {
+
+        return null;
+    }
+    
+    public static String getExcelColumnName(int number) {
+        final StringBuilder sb = new StringBuilder();
+
+        int num = number - 1;
+        while (num >= 0) {
+            int numChar = (num % 26) + 65;
+            sb.append((char) numChar);
+            num = (num / 26) - 1;
+        }
+        return sb.reverse().toString();
+    }
+    
+    public String getCellLabel(String cellName){
+        
+        return null;
+    }
+    
+//    public static void main(String [] args){
+//        System.out.println("convertExcelCellToPair "+convertExcelCellToPair("A8"));
+//    }
 }

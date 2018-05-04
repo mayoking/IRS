@@ -9,11 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,11 +20,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "datasize")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Datasize.findAll", query = "SELECT d FROM Datasize d")
-    , @NamedQuery(name = "Datasize.findById", query = "SELECT d FROM Datasize d WHERE d.id = :id")
-    , @NamedQuery(name = "Datasize.findByDataSizeDesc", query = "SELECT d FROM Datasize d WHERE d.dataSizeDesc = :dataSizeDesc")
-    , @NamedQuery(name = "Datasize.findByDataSize", query = "SELECT d FROM Datasize d WHERE d.dataSize = :dataSize")})
+//@NamedQueries({
+//    @NamedQuery(name = "Datasize.findAll", query = "SELECT d FROM Datasize d")
+//    , @NamedQuery(name = "Datasize.findById", query = "SELECT d FROM Datasize d WHERE d.id = :id")
+//    , @NamedQuery(name = "Datasize.findByDataSizeDesc", query = "SELECT d FROM Datasize d WHERE d.dataSizeDesc = :dataSizeDesc")
+//    , @NamedQuery(name = "Datasize.findByDataSize", query = "SELECT d FROM Datasize d WHERE d.dataSize = :dataSize")})
 public class Datasize implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,7 +34,6 @@ public class Datasize implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @Column(name = "data_size_desc")
-     @GeneratedValue(strategy = GenerationType.AUTO)
     private String dataSizeDesc;
     @Basic(optional = false)
     @Column(name = "data_size")

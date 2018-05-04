@@ -5,13 +5,18 @@
  */
 package com.bbt.irs.dao;
 
-import com.bbt.irs.IRS;
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.MetadataTable;
+import com.bbt.irs.ui.ExcelView;
+import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;
 import com.bbt.irs.vo.HeaderInfoVO;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import javafx.util.Pair;
 import javax.persistence.EntityManager;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 
 /**
  *
@@ -45,15 +50,30 @@ public class MetadataTableDAO {
                 metadata.setHeaderPosition(headerInfoVO.getCellNO());
                 metadata.setTableName(IRS.getTableNames().get(i));
                 metadata.setDataType(headerInfoVO.getDataType().getId());
-                metadata.setDataType(headerInfoVO.getDataSize().getId());
+                metadata.setDataSize(headerInfoVO.getDataSize().getId());
+                System.out.println("headerInfoVO.getCellNO() "+headerInfoVO.getCellNO());
+                metadata.setActualTable(getActualLabel(headerInfoVO.getCellNO()));
 
                 em.persist(metadata);
             }
         }
+        
         //em.getTransaction().commit();
         result = true;
 
         return result;
 
+    }
+    
+     public String getActualLabel(String cellno) {
+        Pair pair = Utility.convertExcelCellToPair(cellno);
+        int numRows = (int) pair.getKey();
+         System.out.println("numRows "+numRows);
+         System.out.println("pair.getValue() "+pair.getValue());
+        Row row = IRS.getPoisheet().getRow(numRows);
+        Cell cell = row.getCell((int) pair.getValue());
+        String label = ExcelView.getCellValueAsString(cell);
+         System.out.println("getActualLabel "+label);
+        return label;
     }
 }

@@ -5,7 +5,7 @@
  */
 package com.bbt.irs.dao;
 
-import com.bbt.irs.ConfigUtility;
+import com.bbt.irs.fxml.ConfigUtility;
 import com.bbt.irs.util.ReadProperty4romXML;
 import java.io.IOException;
 import java.sql.Connection;

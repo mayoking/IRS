@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane id="topbar" prefHeight="123.00009999999747" prefWidth="855.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.bbt.irs.controller.TopBarController">
+  <center>
+    <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <children>
+          
+        <Label fx:id="currentStatus" text="Label" />
+        <Label fx:id="userMessage" text="Label" />
+        <HBox>
+          <Label text="Version " GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+          <Label fx:id="version" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+          </HBox>
+      </children>
+    </VBox>
+  </center>
+  <left>
+    <ImageView  fitHeight="70" preserveRatio="true" smooth="true"  BorderPane.alignment="CENTER">
+      <image>
+        <Image url="@/com/bbt/irs/resources/images/Logo.png" preserveRatio="true" smooth="true" />
+      </image>
+     <!--  <HBox alignment="top_right">
+                <Label text="Version " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="version" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+       </HBox>-->
+      <BorderPane.margin>
+        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+      </BorderPane.margin>
+    </ImageView>
+  </left>
+
+     
+  <right>
+    <Button fx:id="logOut" mnemonicParsing="false" text="Sign Out" BorderPane.alignment="CENTER" onAction="#processLogout">
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+      </BorderPane.margin>
+    </Button>
+  </right>
+</BorderPane>

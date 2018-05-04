@@ -121,4 +121,7 @@ public class ArtifactTable implements Serializable {
         return "com.bbt.irs.entity.ArtifactTable[ id=" + id + " ]";
     }
 
+
+   
+
 }

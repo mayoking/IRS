@@ -15,6 +15,20 @@ import com.bbt.irs.entity.Datatype;
 public class HeaderInfoVO {
 
     /**
+     * @return the actualLabel
+     */
+    public String getActualLabel() {
+        return actualLabel;
+    }
+
+    /**
+     * @param actualLabel the actualLabel to set
+     */
+    public void setActualLabel(String actualLabel) {
+        this.actualLabel = actualLabel;
+    }
+
+    /**
      * @return the cellNO
      */
     public String getCellNO() {
@@ -73,4 +87,5 @@ public class HeaderInfoVO {
     private String cellName;
     private Datatype dataType;
     private Datasize dataSize;
+    private String actualLabel;
 }

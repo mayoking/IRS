@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.MainController">
+  <center>
+    <AnchorPane fx:id="centerPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane.margin>
+        <Insets left="5.0" top="5.0" />
+      </BorderPane.margin>
+    </AnchorPane>
+  </center>
+  <left>
+    <VBox fx:id="leftPane" minHeight="-Infinity" prefWidth="192.0">
+      <BorderPane.margin>
+        <Insets right="5.0" top="5.0" />
+      </BorderPane.margin>
+    </VBox>
+  </left>
+  <top>
+    <BorderPane fx:id="topPane" minWidth="-Infinity" prefHeight="80.0" prefWidth="926.0" BorderPane.alignment="CENTER">
+      <BorderPane.margin>
+        <Insets />
+      </BorderPane.margin>
+    </BorderPane>
+  </top>
+</BorderPane>

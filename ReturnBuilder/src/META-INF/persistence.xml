@@ -2,15 +2,15 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="ReturnBuilderPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.bbt.irs.entity.TRtnWorkCollectionSchedule</class>
-    <class>com.bbt.irs.entity.TCoreRiType</class>
-    <class>com.bbt.irs.entity.Datatype</class>
-    <class>com.bbt.irs.entity.Datasize</class>
-    <class>com.bbt.irs.entity.TemplateType</class>
-    <class>com.bbt.irs.entity.MetadataTable</class>
-    <class>com.bbt.irs.entity.ExtractionTableInfo</class>
     <class>com.bbt.irs.dao.TRtnReturns</class>
+    <class>com.bbt.irs.entity.Datasize</class>
+    <class>com.bbt.irs.entity.ExtractionTableInfo</class>
+    <class>com.bbt.irs.entity.MetadataTable</class>
+    <class>com.bbt.irs.entity.Datatype</class>
+    <class>com.bbt.irs.entity.TCoreRiType</class>
     <class>com.bbt.irs.entity.TRtnReturns</class>
+    <class>com.bbt.irs.entity.TRtnWorkCollectionSchedule</class>
+    <class>com.bbt.irs.entity.TemplateType</class>
     <class>com.bbt.irs.entity.ArtifactTable</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://127.0.0.1;databaseName=RBSCT"/>

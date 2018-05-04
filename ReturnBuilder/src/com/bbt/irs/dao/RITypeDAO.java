@@ -5,7 +5,7 @@
  */
 package com.bbt.irs.dao;
 
-import com.bbt.irs.UploadTemplateUI;
+import com.bbt.irs.ui.UploadTemplateUI;
 import com.bbt.irs.entity.TCoreRiType;
 import java.sql.SQLException;
 import static java.util.Collections.list;

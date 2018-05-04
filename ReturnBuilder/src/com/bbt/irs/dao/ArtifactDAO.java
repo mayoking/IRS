@@ -5,7 +5,7 @@
  */
 package com.bbt.irs.dao;
 
-import com.bbt.irs.IRS;
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.ArtifactTable;
 import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;

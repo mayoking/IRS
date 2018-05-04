@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "MetadataTable.findByTableName", query = "SELECT m FROM MetadataTable m WHERE m.tableName = :tableName")})
 public class MetadataTable implements Serializable {
 
+    @Column(name = "actual_table")
+    private String actualTable;
+
     @Basic(optional = false)
     @Column(name = "data_type")
     private int dataType;
@@ -179,6 +182,14 @@ public class MetadataTable implements Serializable {
 
     public void setDataSize(int dataSize) {
         this.dataSize = dataSize;
+    }
+
+    public String getActualTable() {
+        return actualTable;
+    }
+
+    public void setActualTable(String actualTable) {
+        this.actualTable = actualTable;
     }
 
 }

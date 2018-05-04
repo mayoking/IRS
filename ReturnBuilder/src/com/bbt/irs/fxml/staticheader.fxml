@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.bbt.irs.controller.MenuController" >
+     <children>
+                    <ScrollPane fx:id="MScroll" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <content>
+                        <AnchorPane fx:id="ScrollAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1150.0">
+                          <children>
+                            <BorderPane id="borderPanecss" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <top>
+                                <GridPane fx:id="maingrid" alignment="CENTER" hgap="30.0" vgap="30.0">
+                                    
+                                     <padding>
+                                       <Insets top="25" right="25" bottom="10" left="25"/>
+                                            </padding>
+                                             
+                                              <Text text="" id="welcome-text2" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+ 
+                                               <Label text="Starting Cell 1" GridPane.columnIndex="0" GridPane.rowIndex="1"  contentDisplay="RIGHT" graphicTextGap="0">
+                                                    <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                                    </graphic>
+                                               </Label>
+                                               <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                                                
+                                                <TextField fx:id="onlWebId"  GridPane.columnIndex="2" GridPane.rowIndex="1" >
+                                            <tooltip>
+                                            <Tooltip text="Enter the starting rows"/>
+                                          </tooltip>
+                                                </TextField>
+                                                   <Text fx:id="onlWebIdErr" GridPane.columnIndex="3" GridPane.rowIndex="1"/>              
+                                            <Label text="Starting Cell2" GridPane.columnIndex="0" GridPane.rowIndex="2" contentDisplay="RIGHT" graphicTextGap="0">
+                                                 <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                                 </graphic>
+                                            </Label>
+                                            <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                             <TextField fx:id="onlLastname"   GridPane.columnIndex="2" GridPane.rowIndex="2" >
+                                                <tooltip>
+                                            <Tooltip text="This describes your Family Name "/>
+                                          </tooltip>
+                                                </TextField>
+                                                 <Text fx:id="onlLastnameErr" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                                             
+                                                 <Label text="Starting Cell 3"  GridPane.columnIndex="0" GridPane.rowIndex="3" contentDisplay="RIGHT" graphicTextGap="0">
+                                                      <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                                      </graphic>
+                                                 </Label>
+                                             <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                             <TextField fx:id="tettst"  GridPane.columnIndex="2" GridPane.rowIndex="3"  >
+                                             <tooltip>
+                                            <Tooltip text="This describes your personal Name "/>
+                                          </tooltip>
+                                                </TextField>
+                                              <Text fx:id="onlFirstnameErr" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                                                
+                          
+                                                          <Label text="Starting Cell5" GridPane.columnIndex="0" GridPane.rowIndex="4" contentDisplay="RIGHT" graphicTextGap="2">
+                                        <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Label>
+                                    <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <VBox GridPane.columnIndex="2" GridPane.rowIndex="4" spacing="4" >                               
+                                    <TextField fx:id="onlMiddleName" GridPane.columnIndex="2" GridPane.rowIndex="4"  >
+                                          <tooltip>
+                                            <Tooltip text="This describes your other name "/>
+                                          </tooltip>
+                                    </TextField>
+                                    
+                                     <CheckBox fx:id="onlMiddlenameCheckBox" mnemonicParsing="false"  text="Not Applicable"  GridPane.columnIndex="3" GridPane.rowIndex="4" >
+                                                    <tooltip>
+                                                        <Tooltip text="Click this checkbox if you have Middle Name"></Tooltip>
+                                                    </tooltip>
+                                        
+                                    </CheckBox>
+                                     </VBox >
+                                    <Text fx:id="onlMiddleNameErr" GridPane.columnIndex="3" GridPane.rowIndex="4" /> 
+                                  
+                                    <Label text="Cell" GridPane.columnIndex="0" GridPane.rowIndex="5" contentDisplay="RIGHT" graphicTextGap="5">
+                                        <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Label>
+                                      <padding>
+                                        <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+                                    </padding>
+                                    <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="onlGender"  GridPane.columnIndex="2" GridPane.rowIndex="5"  >
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                
+                                                <String fx:value="FEMALE" />
+                                                <String fx:value="MALE" />
+                                            </FXCollections>
+                                        </items>            <tooltip>
+                                            <Tooltip text="What is your Gender? i.e Male. Female etc"/>
+                                             </tooltip>
+                                    </ComboBox>
+                                    <Text fx:id="onlGenderErr" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                   <Label text="Cell" GridPane.columnIndex="0" GridPane.rowIndex="6" contentDisplay="RIGHT" graphicTextGap="2">
+                                        <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Label>
+                                    <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                      
+                                      <VBox fx:id="onvboxdate" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                        
+                                       
+                                                </VBox>                                
+                              
+                                    <Text fx:id="onlDateofBirthErr" GridPane.columnIndex="3" GridPane.rowIndex="6" /> 
+                                  
+                                    <Label text="Cell" GridPane.columnIndex="0" GridPane.rowIndex="7" contentDisplay="RIGHT" graphicTextGap="3">
+                                        <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Label>
+                                      <padding>
+                                        <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+                                    </padding>
+                                    <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="onstate"  GridPane.columnIndex="2" GridPane.rowIndex="7" >
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                
+                                                <String fx:value="" />
+                                                <String fx:value="" />
+                                            </FXCollections>
+                                        </items>            
+                                               <tooltip>
+                                            <Tooltip text="Select the state where you are living"/>
+                                             </tooltip>
+                                    </ComboBox>
+                                    <Text fx:id="onstateErr" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                          <Label text="Cell" GridPane.columnIndex="0" GridPane.rowIndex="8" contentDisplay="RIGHT" graphicTextGap="3">
+                                        <graphic  >
+                                            <ImageView fitWidth="5" preserveRatio="true" smooth="true" >
+                                                <image>
+                                                    <Image url="@/com/bbt/irs/resources/images/red_asterisk.jpg"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Label>
+                                      <padding>
+                                        <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+                                    </padding>
+                                    <Separator maxWidth="80.0" orientation="HORIZONTAL" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <ComboBox fx:id="onlLG"  GridPane.columnIndex="2" GridPane.rowIndex="8" >
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                
+                                                <String fx:value="" />
+                                                <String fx:value="" />
+                                            </FXCollections>
+                                        </items>            <tooltip>
+                                            <Tooltip text="What is your Local Government? "/>
+                                             </tooltip>
+                                    </ComboBox>
+                                    <Text fx:id="onlLGErr" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+
+                                        <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                        <Button  text="Next" >
+                                            <graphic>
+                                                <ImageView>
+                                                    <Image url="@/com/bbt/irs/resources/images/pencil.png"/>
+                                                </ImageView>
+                                            </graphic>
+                                      
+                                        </Button>
+                                    </HBox>                                    
+                                
+                                   
+                                </GridPane>
+                              </top>
+                            </BorderPane>
+                          </children>
+                        </AnchorPane>
+                      </content>
+                    </ScrollPane>
+                  </children>
+</AnchorPane>
+

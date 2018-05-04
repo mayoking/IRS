@@ -5,8 +5,8 @@
  */
 package com.bbt.irs.xml;
 
-import com.bbt.irs.ExcelView;
-import com.bbt.irs.IRS;
+import com.bbt.irs.ui.ExcelView;
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;
 import com.bbt.irs.vo.HeaderInfoVO;
@@ -193,6 +193,8 @@ public class XMLGenerator {
         }
         return listRowNum;
     }
+    
+   
 
 
 }

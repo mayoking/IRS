@@ -1,0 +1,5 @@
+2018-05-04 05:49:13,362 INFO c.b.i.c.LoginController [JavaFX Application Thread] You clicked me!
+2018-05-04 05:49:13,389 INFO c.b.i.c.LoginController [JavaFX Application Thread] username is s
+2018-05-04 05:49:13,404 INFO c.b.i.c.MainController [JavaFX Application Thread] About to load menu and panes
+2018-05-04 05:49:13,405 INFO c.b.i.c.MainController [JavaFX Application Thread] About to load side menu 
+2018-05-04 05:49:13,499 INFO c.b.i.c.MainController [JavaFX Application Thread] Menu and Pane loaded
