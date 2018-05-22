@@ -6,11 +6,10 @@
 package com.bbt.irs.dao;
 
 import static com.bbt.irs.dao.DAOConstants.GETWORKCOLLECTION;
-import com.bbt.irs.entity.TRtnWorkCollectionSchedule;
+import com.bbt.irs.deploy.IRS;
+import com.bbt.irs.entity.TRtnWorkCollection;
 import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
@@ -20,11 +19,9 @@ import javax.persistence.Query;
 public class WorkCollectionDAO implements DAOConstants {
      EntityManagerFactory emf;
 
-    public List<TRtnWorkCollectionSchedule> getWorkCollection() {
-        List<TRtnWorkCollectionSchedule> list;
-        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
-        EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery(GETWORKCOLLECTION);
+    public List<TRtnWorkCollection> getWorkCollection()throws Exception {
+        List<TRtnWorkCollection> list;
+        Query query = IRS.getEm().createQuery(GETWORKCOLLECTION);
         list = query.getResultList();
 
         return list;

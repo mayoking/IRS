@@ -123,17 +123,18 @@ public class ExcelView {
 
         Row poiRow;
         Cell cell;
-        String value;
+        String value=null;
         FormulaEvaluator evaluator = poiWorkbook.getCreationHelper().createFormulaEvaluator();
 
         for (int row = 0; row < grid.getRowCount(); ++row) {
             final ObservableList<SpreadsheetCell> list = FXCollections.observableArrayList();
             poiRow = poiSheet.getRow(row);
             for (int column = 0; column < grid.getColumnCount(); ++column) {
-
-                cell = poiRow.getCell(column);
-                value = getCellValueAsString(cell);//ExcelUtils.cellStringValue(evaluator,cell);
-
+                System.out.println("column 33333 " + column);
+                if (poiRow != null) {
+                    cell = poiRow.getCell(column, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                    value = getCellValueAsString(cell);//ExcelUtils.cellStringValue(evaluator,cell);
+                }
                 list.add(SpreadsheetCellType.STRING.createCell(row, column, 1, 1, value));
             }
             rows.add(list);
@@ -244,7 +245,7 @@ public class ExcelView {
     }
 
     public static String getCellValueAsString(Cell cell) {
-        String strCellValue = null;
+        String strCellValue = "xxx";
         if (cell != null) {
             switch (cell.getCellType()) {
                 case Cell.CELL_TYPE_STRING:
@@ -273,14 +274,13 @@ public class ExcelView {
         return strCellValue;
     }
 
-
     public static int NumberIndexToColumnIndex(String columnName) {
         columnName = columnName.toUpperCase();
         int value = 0;
         for (int i = 0; i < columnName.length(); i++) {
             int delta = columnName.charAt(i) - 64;
-            System.out.println("columnName.charAt(i) "+columnName.charAt(i));
-            System.out.println("delta "+delta);
+            System.out.println("columnName.charAt(i) " + columnName.charAt(i));
+            System.out.println("delta " + delta);
             value = value * 26 + delta;
         }
         return value - 1;

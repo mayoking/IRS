@@ -15,6 +15,62 @@ import com.bbt.irs.entity.Datatype;
 public class HeaderInfoVO {
 
     /**
+     * @return the fromVerticalMerged
+     */
+    public String getFromVerticalMerged() {
+        return fromVerticalMerged;
+    }
+
+    /**
+     * @param fromVerticalMerged the fromVerticalMerged to set
+     */
+    public void setFromVerticalMerged(String fromVerticalMerged) {
+        this.fromVerticalMerged = fromVerticalMerged;
+    }
+
+    /**
+     * @return the toVerticalMerged
+     */
+    public String getToVerticalMerged() {
+        return toVerticalMerged;
+    }
+
+    /**
+     * @param toVerticalMerged the toVerticalMerged to set
+     */
+    public void setToVerticalMerged(String toVerticalMerged) {
+        this.toVerticalMerged = toVerticalMerged;
+    }
+
+    /**
+     * @return the fromHorizontalMerged
+     */
+    public String getFromHorizontalMerged() {
+        return fromHorizontalMerged;
+    }
+
+    /**
+     * @param fromHorizontalMerged the fromHorizontalMerged to set
+     */
+    public void setFromHorizontalMerged(String fromHorizontalMerged) {
+        this.fromHorizontalMerged = fromHorizontalMerged;
+    }
+
+    /**
+     * @return the toHorizontalMerged
+     */
+    public String getToHorizontalMerged() {
+        return toHorizontalMerged;
+    }
+
+    /**
+     * @param toHorizontalMerged the toHorizontalMerged to set
+     */
+    public void setToHorizontalMerged(String toHorizontalMerged) {
+        this.toHorizontalMerged = toHorizontalMerged;
+    }
+
+    /**
      * @return the actualLabel
      */
     public String getActualLabel() {
@@ -88,4 +144,8 @@ public class HeaderInfoVO {
     private Datatype dataType;
     private Datasize dataSize;
     private String actualLabel;
+    private String fromVerticalMerged;
+    private String toVerticalMerged;
+    private String fromHorizontalMerged;
+    private String toHorizontalMerged;
 }

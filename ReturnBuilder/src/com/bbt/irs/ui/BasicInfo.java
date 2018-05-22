@@ -11,19 +11,23 @@ import com.bbt.irs.controller.MainController;
 import static com.bbt.irs.deploy.ErrorNameDesc.FIELD_BLANK;
 import com.bbt.irs.dao.DataSizeDAO;
 import com.bbt.irs.dao.DataTypeDAO;
+import com.bbt.irs.dao.FrequencyDAO;
 import com.bbt.irs.dao.RITypeDAO;
 import com.bbt.irs.dao.TemplateTypeDAO;
-import com.bbt.irs.dao.WorkCollectionDAO;
+import com.bbt.irs.deploy.ErrorNameDesc;
 import com.bbt.irs.deploy.Messages;
 import com.bbt.irs.entity.Datasize;
 import com.bbt.irs.entity.Datatype;
 import com.bbt.irs.entity.TCoreRiType;
-import com.bbt.irs.entity.TRtnWorkCollectionSchedule;
+import com.bbt.irs.entity.TLkupFrequency;
+import com.bbt.irs.entity.TRtnWorkCollection;
+
 import com.bbt.irs.entity.TemplateType;
-import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;
 import java.io.IOException;
 import java.util.List;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,59 +50,90 @@ import org.apache.logging.log4j.LogManager;
  *
  * @author opeyemi
  */
-public class BasicInfo implements Messages {
-
+public class BasicInfo implements Messages, ErrorNameDesc {
+    
     private AnchorPane pane = new AnchorPane();
     public AnchorPane pane1 = new AnchorPane();
     ScrollPane scroll = new ScrollPane();
-
+    
     BorderPane bpane = new BorderPane();
     GridPane gpane = new GridPane();
-
+    
     VBox vboxMain = new VBox();
     VBox vbox = new VBox();
     HBox hbox = new HBox();
     HBox hbox1 = new HBox();
     HBox hbox2 = new HBox();
     HBox hbox3 = new HBox();
-
+    HBox hbox4 = new HBox();
+    
     Button btn = new Button("Next");
     Button btn1 = new Button("Back");
     Label tempalteCodeLabel = new Label("Template Code");
     Label templateDescLabel = new Label(DESC_LABEL);
     Label numTablesLabel = new Label(NO_NUM_TABLES_LABEL);
-    Label workCollectionsLabel = new Label("Work Collections");
+    Label workCollectionsLabel = new Label("Frequency");
     Label templateTypeLabel = new Label("Template Type");
     Label RITypeLabel = new Label("RI Type");
+    Label affiliateLabel = new Label("Affiliates");
+    
+    private TextField affiliate = new TextField();
+    
     private TextField tempalteCode = new TextField();
-
+    
     private TextField templateDesc = new TextField();
     TextField numTables = new TextField();
-    List<TCoreRiType> riTypes = new RITypeDAO().getRIype();
-    List<Datasize> dataSize = new DataSizeDAO().getDataSize();
-    List<Datatype> dataType = new DataTypeDAO().getDataType();
-    List<TemplateType> templateTypes = new TemplateTypeDAO().getTemplateType();
-    List<TRtnWorkCollectionSchedule> workcollections = new WorkCollectionDAO().getWorkCollection();
-    private final ObservableList<TRtnWorkCollectionSchedule> collections
-            = FXCollections.observableArrayList(
-                    workcollections);
-
-    private final ObservableList<TemplateType> typesofTemplate
-            = FXCollections.observableArrayList(
-                    templateTypes);
-
-    private final ObservableList<TCoreRiType> typesofRI
-            = FXCollections.observableList(riTypes);
-
-    ComboBox workCollections = new ComboBox(collections);
-    ComboBox templateType = new ComboBox(typesofTemplate);
-    ComboBox Ritype = new ComboBox(typesofRI);
+    List<TCoreRiType> riTypes;
+    List<Datasize> dataSize;
+    List<Datatype> dataType;
+    List<TemplateType> templateTypes;
+    List<TLkupFrequency> workcollections;
+    private ObservableList<TLkupFrequency> collections;
+    
+    private ObservableList<TemplateType> typesofTemplate;
+    
+    private ObservableList<TCoreRiType> typesofRI;
+    
+    ComboBox workCollections;
+    ComboBox templateType;
+    ComboBox Ritype;
     Separator separator = new Separator();
-
+    private boolean isaffiliate = false;
+    
     public BasicInfo() {
+        try {
+            loadComboBox();
+            setComboBox();
+        } catch (Exception ex) {
+            IRSDialog.showAlert(ERROR, ERROR_DROPDOWN);
+            LOGGER.log(org.apache.logging.log4j.Level.FATAL, ERROR_DROPDOWN, ex);
+        }
         populateUI();
         setLayOut();
+        templateType.valueProperty().addListener(new ChangeListener<TemplateType>() {
+            @Override
+            public void changed(ObservableValue ov, TemplateType t, TemplateType t1) {
+                if (t1.getTemplateId() == 4) {
+                    hbox4.getChildren().addAll(affiliateLabel, affiliate);
+                    vbox.getChildren().add(hbox4);
+                    isaffiliate = true;
+                    
+                } else {
+                    System.out.println("testing ");
+                    String test = affiliate.getText();
+                    
+                    System.out.println("test " + test);
+                    if (isaffiliate) {
+                        System.out.println("About to remove hbox4");
+                        hbox4.getChildren().removeAll(affiliate, affiliateLabel);
+                        vbox.getChildren().remove(hbox4);
+                    }
+                    isaffiliate = false;
+                }
+            }
+        });
         controlsValidator();
+        
         btn.setOnAction((ActionEvent event) -> {
             processNextButton();
         });
@@ -113,14 +148,17 @@ public class BasicInfo implements Messages {
         hbox1.getStyleClass().add("hbox");
         hbox2.getStyleClass().add("hbox");
         hbox3.getStyleClass().add("hbox");
+        hbox4.getStyleClass().add("hbox");
         getTempalteCode().getStyleClass().add("text-field");
         getTemplateDesc().getStyleClass().add("text-field");
+        affiliate.getStyleClass().add("text-field");
         numTables.getStyleClass().add("text-field");
         workCollections.getStyleClass().add("combobox");
         templateType.getStyleClass().add("combobox");
         Ritype.getStyleClass().add("combobox");
         tempalteCodeLabel.getStyleClass().add("label9");
         templateDescLabel.getStyleClass().add("label9");
+        affiliateLabel.getStyleClass().add("label9");
         RITypeLabel.getStyleClass().add("label9");
         numTablesLabel.getStyleClass().add("label9");
         workCollectionsLabel.getStyleClass().add("label9");
@@ -135,14 +173,21 @@ public class BasicInfo implements Messages {
     public boolean validateBasicInfo() {
         boolean result = true;
         if (getTempalteCode().getText() == null || getTempalteCode().getText().isEmpty()) {
-            Utility.showDialog(tempalteCodeLabel.getText(), FIELD_BLANK, false);
+            
+            IRSDialog.showAlert(tempalteCodeLabel.getText(), FIELD_BLANK);
             result = false;
         }
         if (this.getTemplateDesc().getText() == null || this.getTemplateDesc().getText().isEmpty()) {
             IRSDialog.showAlert(templateDescLabel.getText(), FIELD_BLANK);
             result = false;
         }
-
+        if (isaffiliate) {
+            if (this.affiliate.getText() == null || this.affiliate.getText().isEmpty()) {
+                IRSDialog.showAlert(affiliateLabel.getText(), FIELD_BLANK);
+                result = false;
+            }
+        }
+        
         if (this.templateType.getSelectionModel().getSelectedItem() == null) {
             IRSDialog.showAlert(templateTypeLabel.getText(), FIELD_BLANK);
             result = false;
@@ -155,19 +200,19 @@ public class BasicInfo implements Messages {
             IRSDialog.showAlert(numTablesLabel.getText(), FIELD_BLANK);
             result = false;
         }
-
+        
         if (this.workCollections.getSelectionModel().getSelectedItem() == null) {
             IRSDialog.showAlert(workCollectionsLabel.getText(), FIELD_BLANK);
             result = false;
         }
-
+        
         return result;
     }
-
+    
     public void setControlID() {
         getTempalteCode().setId("tempalteCode");
         this.getTemplateDesc().setId("templateDesc");
-
+        
     }
 
     /**
@@ -182,9 +227,12 @@ public class BasicInfo implements Messages {
         info.setRitype((TCoreRiType) Ritype.getSelectionModel().getSelectedItem());
         info.setTemplateDesc(getTemplateDesc().getText());
         info.setTemplateType((TemplateType) templateType.getSelectionModel().getSelectedItem());
-        System.out.println("info.getTemplateType().getId() " + info.getTemplateType().getId());
+        System.out.println("info.getTemplateType().getId() " + info.getTemplateType().getTemplateId());
         info.setTemplateCode(getTempalteCode().getText());
-        info.setWorkCollections((TRtnWorkCollectionSchedule) workCollections.getSelectionModel().getSelectedItem());
+        info.setFrequncyCollections((TLkupFrequency) workCollections.getSelectionModel().getSelectedItem());
+        if (isaffiliate) {
+            info.setAfiliate(affiliate.getText());
+        }
         return info;
     }
 
@@ -225,7 +273,7 @@ public class BasicInfo implements Messages {
         gpane.setAlignment(Pos.CENTER);
         pane1.getChildren().add(bpane);
     }
-
+    
     public final void setLayOut() {
         AnchorPane.setTopAnchor(bpane, 0.0);
         AnchorPane.setRightAnchor(bpane, 0.0);
@@ -266,6 +314,14 @@ public class BasicInfo implements Messages {
                     return change;
                 }
                 ));
+        if (isaffiliate) {
+            templateDesc.setTextFormatter(
+                    new TextFormatter<>((change) -> {
+                        change.setText(change.getText().toUpperCase().replace("*", ""));
+                        return change;
+                    }
+                    ));
+        }
     }
 
     /**
@@ -310,5 +366,31 @@ public class BasicInfo implements Messages {
     public void setPane(AnchorPane pane) {
         this.pane = pane;
     }
-
+    
+    private void loadComboBox() throws Exception {
+        riTypes = new RITypeDAO().getRIype();
+        dataSize = new DataSizeDAO().getDataSize();
+        dataType = new DataTypeDAO().getDataType();
+        templateTypes = new TemplateTypeDAO().getTemplateType();
+        //workcollections = new WorkCollectionDAO().getWorkCollection();
+        workcollections = new FrequencyDAO().getFrequency();
+        
+    }
+    
+    private void setComboBox() {
+        collections
+                = FXCollections.observableArrayList(
+                        workcollections);
+        
+        typesofTemplate
+                = FXCollections.observableArrayList(
+                        templateTypes);
+        
+        typesofRI
+                = FXCollections.observableList(riTypes);
+        workCollections = new ComboBox(collections);
+        templateType = new ComboBox(typesofTemplate);
+        Ritype = new ComboBox(typesofRI);
+    }
+    
 }

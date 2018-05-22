@@ -6,6 +6,7 @@
 package com.bbt.irs.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -20,23 +23,37 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author opeyemi
  */
 @Entity
-@Table(name = "template_type")
+@Table(name = "t_rb_template_type")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TemplateType.findAll", query = "SELECT t FROM TemplateType t")
-    , @NamedQuery(name = "TemplateType.findById", query = "SELECT t FROM TemplateType t WHERE t.id = :id")
-    , @NamedQuery(name = "TemplateType.findByDescs", query = "SELECT t FROM TemplateType t WHERE t.descs = :descs")
-    , @NamedQuery(name = "TemplateType.findByType", query = "SELECT t FROM TemplateType t WHERE t.type = :type")})
+//@NamedQueries({
+//    @NamedQuery(name = "TemplateType.findAll", query = "SELECT t FROM TemplateType t")
+//    , @NamedQuery(name = "TemplateType.findById", query = "SELECT t FROM TemplateType t WHERE t.id = :id")
+//    , @NamedQuery(name = "TemplateType.findByDescs", query = "SELECT t FROM TemplateType t WHERE t.descs = :descs")
+//    , @NamedQuery(name = "TemplateType.findByType", query = "SELECT t FROM TemplateType t WHERE t.type = :type")})
 public class TemplateType implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "template_id")
+    private Integer templateId;
     @Basic(optional = false)
-    @Column(name = "descs")
-    private String descs;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "created_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+    @Column(name = "created_by")
+    private String createdBy;
+    @Basic(optional = false)
+    @Column(name = "last_modified")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModified;
+    @Basic(optional = false)
+    @Column(name = "modified_by")
+    private String modifiedBy;
+
+    private static final long serialVersionUID = 1L;
+
     @Basic(optional = false)
     @Column(name = "type")
     private String type;
@@ -44,31 +61,11 @@ public class TemplateType implements Serializable {
     public TemplateType() {
     }
 
-    public TemplateType(Integer id) {
-        this.id = id;
-    }
+  
 
-    public TemplateType(Integer id, String descs, String type) {
-        this.id = id;
-        this.descs = descs;
-        this.type = type;
-    }
+    
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getDescs() {
-        return descs;
-    }
-
-    public void setDescs(String descs) {
-        this.descs = descs;
-    }
+   
 
     public String getType() {
         return type;
@@ -78,10 +75,73 @@ public class TemplateType implements Serializable {
         this.type = type;
     }
 
+    
+    
+
+   
+    public TemplateType(Integer templateId) {
+        this.templateId = templateId;
+    }
+
+    public TemplateType(Integer templateId, String description, Date lastModified, String modifiedBy) {
+        this.templateId = templateId;
+        this.description = description;
+        this.lastModified = lastModified;
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Integer getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(Integer templateId) {
+        this.templateId = templateId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (templateId != null ? templateId.hashCode() : 0);
         return hash;
     }
 
@@ -92,7 +152,7 @@ public class TemplateType implements Serializable {
             return false;
         }
         TemplateType other = (TemplateType) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.templateId == null && other.templateId != null) || (this.templateId != null && !this.templateId.equals(other.templateId))) {
             return false;
         }
         return true;
@@ -100,7 +160,7 @@ public class TemplateType implements Serializable {
 
     @Override
     public String toString() {
-        return descs;
+        return description;
     }
     
 }

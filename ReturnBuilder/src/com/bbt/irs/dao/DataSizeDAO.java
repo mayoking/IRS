@@ -5,12 +5,10 @@
  */
 package com.bbt.irs.dao;
 
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.Datasize;
-import com.bbt.irs.vo.DataSize;
 import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
@@ -20,11 +18,11 @@ import javax.persistence.Query;
 public class DataSizeDAO implements DAOConstants {
     EntityManagerFactory emf;
 
-    public List<Datasize> getDataSize() {
+    public List<Datasize> getDataSize()throws Exception {
         List<Datasize> list;
-        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
-        EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery(GETDATASIZE);
+////        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
+//        EntityManager em = emf.createEntityManager();
+        Query query = IRS.getEm().createQuery(GETDATASIZE);
         list = query.getResultList();
 
         return list;

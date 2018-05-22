@@ -1,0 +1,186 @@
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[template_type]    Script Date: 5/4/2018 6:44:11 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_template_type](
+	[id] [int] NOT NULL,
+	[descs] [varchar](20) NOT NULL,
+	[type] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_template_type] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[metadata_table]    Script Date: 5/4/2018 6:43:59 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_metadata_table](
+    [id] [bigint] IDENTITY(1,1) NOT NULL,
+	[ri_type_code] [varchar](20) NOT NULL,
+	[return_code] [varchar](20) NOT NULL,
+	[header_desc] [varchar](50) NOT NULL,
+	[xml_name] [varchar](100) NOT NULL,
+	[header_position] [varchar](10) NOT NULL,
+	[table_name] [varchar](100) NOT NULL,
+	[data_type] [int] NOT NULL,
+	[data_size] [int] NOT NULL,
+	[actual_label] [varchar](200) NOT  NULL,
+	[vertical_merged] [varchar](3) NOT NULL,
+	[horizontal_merged] [varchar](3) NOT NULL,
+	[merged_range] [varchar](200) NULL,
+ CONSTRAINT [metadata_table_PK_ID] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[extraction_table_info]    Script Date: 5/4/2018 6:43:44 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_extraction_table_info](
+    [id] [bigint] IDENTITY(1,1) NOT NULL,
+	[template_code] [varchar](11) NOT NULL,
+	[template_name] [varchar](11) NOT NULL,
+	[template_type] [int] NOT NULL,
+ CONSTRAINT [PK_ID] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[datatype]    Script Date: 5/4/2018 6:43:33 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_datatype](
+	[id] [int] NOT NULL,
+	[datatype_desc] [varchar](20) NOT NULL,
+	[datatype] [varchar](15) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[artifact_table]    Script Date: 5/4/2018 6:42:43 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_artifact_table](
+	[return_code] [varchar](20) NOT NULL,
+	[sample_xml] [varbinary](max) NOT NULL,
+	[xls_path] [varchar](255) NOT NULL,
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [artifact_table_PK_ID] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+USE [RBSCT]
+GO
+
+/****** Object:  Table [dbo].[datasize]    Script Date: 5/4/2018 6:43:20 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[t_datasize](
+	[id] [int] NOT NULL,
+	[data_size_desc] [varchar](20) NOT NULL,
+	[data_size] [varchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+

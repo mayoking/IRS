@@ -58,7 +58,13 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
     private static List<LinkedHashMap> linekdHashMaps = new ArrayList();
 
     public HeaderInfo() {
-
+        try {
+            loadComboBox();
+            setComboBox();
+        } catch (Exception ex) {
+            IRSDialog.showAlert(ERROR, ERROR_DROPDOWN);
+            LOGGER.log(org.apache.logging.log4j.Level.FATAL, ERROR_DROPDOWN, ex);
+        }
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
@@ -67,7 +73,9 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
         btn1.getStyleClass().add("button");
         btn2.getStyleClass().add("button");
         btn3.getStyleClass().add("button");
-
+/**
+ * Add button action to add each newly created ui to headerInfoHashMap
+ */
         btn.setOnAction((ActionEvent event) -> {
             boolean test;
             if (!headerInfoHashmap.isEmpty()) {
@@ -112,6 +120,7 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
 
                         }
                         IRS.getAllHeaderInfo().put(IRS.getFinalCounter(), ls);
+                        IRS.getHeaderInfoList().addFirst(IRS.getHeaderInfo());
 
                         if (IRS.getFinalCounter() < IRS.numberOfTables) {
                             MainController.getInstance().loadStaticHeaderForm();
@@ -126,6 +135,7 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
 
                     }
                 } catch (IOException ex) {
+                    IRSDialog.showAlert(ERROR, "Unable to process header Information");
                    LOGGER.log(Level.FATAL, "error", ex);
                 }
             }
@@ -199,7 +209,10 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
         ComboBox comboBox;
         if (type) {
             comboBox = new ComboBox(data);
-            //comboBox.getSelectionModel().selectFirst(); // Select first as default
+            if(counter==1){
+            comboBox.getSelectionModel().selectFirst();// Select first as default
+            comboBox.setEditable(false);
+            }
             comboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Datatype>() {
 
                 @Override
@@ -211,13 +224,16 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
             });
         } else {
             comboBox = new ComboBox(dataSize);
-            //comboBox.getSelectionModel().selectFirst(); // Select first as default
+            if(counter==1){
+            comboBox.getSelectionModel().select(2);// Select first as default
+            comboBox.setEditable(false);
+            }
             comboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Datasize>() {
 
                 @Override
                 public void changed(ObservableValue<? extends Datasize> arg0, Datasize arg1, Datasize arg2) {
                     if (arg2 != null) {
-                        System.out.println("Selected dataTpe: " + arg2.getDataSizeDesc());
+                        System.out.println("Selected dataTpe: " + arg2.getDatasizeDesc());
                     }
                 }
             });
@@ -253,6 +269,10 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
         combo2.setId(DATASIZEID + counter);
         field1.setId(CELLNOID + counter);
         field2.setId(CELLNANEID + counter);
+        if(counter==1){
+            field2.setText("ITEM_CODE");
+            field2.setEditable(false);
+        }
         label1.getStyleClass().add("label9");
         label2.getStyleClass().add("label9");
         label3.getStyleClass().add("label9");
@@ -273,7 +293,7 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
         vboxl.setId(counter + "");
         return vboxl;
     }
-
+    
     public boolean validateHeaderInfo() {
         boolean result;
         BasicInfoVO info = (BasicInfoVO) IRS.getLinkedHashMap().get(1);
@@ -349,9 +369,9 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
         result.setDataSize((Datasize) combo2.getSelectionModel().getSelectedItem());
         result.setDataType((Datatype) combo1.getSelectionModel().getSelectedItem());
 //         result.setActualLabel(getActualLabel(field1.getText()));
-        System.out.println("tetsing id getDataType "+result.getDataType().getId());
-         System.out.println("tetsing id getDataSize "+result.getDataSize().getId());
-        this.counter--;//decreasing the counter to get all the object in the linkedmap
+        System.out.println("tetsing id getDataType "+result.getDataType());
+         System.out.println("tetsing id getDataSize "+result.getDataSize().getDatasizeId());
+        this.counter--;//decreasing the counter to get all the object in the linkedmap(reset)
         return result;
     }
 
@@ -366,18 +386,32 @@ public class HeaderInfo implements Messages,ErrorNameDesc {
             LOGGER.log(org.apache.logging.log4j.Level.FATAL, READ_XLS_FAILED, ex);
         }
     }
+private void loadComboBox() throws Exception {
+        dataSizes = new DataSizeDAO().getDataSize();
+        dataType = new DataTypeDAO().getDataType();
 
-    List<Datasize> dataSizes = new DataSizeDAO().getDataSize();
-    List<Datatype> dataType = new DataTypeDAO().getDataType();
-    private final ObservableList<Datatype> data
-            = FXCollections.observableArrayList(
-                    dataType);
 
-    private final ObservableList<Datasize> dataSize
-            = FXCollections.observableArrayList(
-                    dataSizes);
+    }
 
-    public int counter;
+    private void setComboBox() {
+        data
+                = FXCollections.observableArrayList(
+                        dataType);
+
+        dataSize
+                = FXCollections.observableArrayList(
+                        dataSizes);
+    }
+    List<Datasize> dataSizes = null;
+    List<Datatype> dataType = null;
+    private  ObservableList<Datatype> data=null;
+            
+    private  ObservableList<Datasize> dataSize=null;
+
+    /**
+     *This is used to count the number of header info UI created.
+     */
+    public int counter=0;
     public int finalCounter = 0;
     public Button btn3 = new Button("Back");
     public Button btn = new Button("Add");

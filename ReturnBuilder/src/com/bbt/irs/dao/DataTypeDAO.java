@@ -5,11 +5,10 @@
  */
 package com.bbt.irs.dao;
 
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.Datatype;
 import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 /**
@@ -19,11 +18,9 @@ import javax.persistence.Query;
 public class DataTypeDAO implements DAOConstants {
     EntityManagerFactory emf;
 
-    public List<Datatype> getDataType()  {
+    public List<Datatype> getDataType() throws Exception  {
         List<Datatype> list;
-        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
-        EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery(GETDATATYPE);
+        Query query = IRS.getEm().createQuery(GETDATATYPE);
         list = query.getResultList();
 
         return list;

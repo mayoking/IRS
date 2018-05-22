@@ -154,7 +154,7 @@ public class MainController implements Initializable, ErrorNameDesc, Messages {
 
     public void loadStaticHeaderForm() throws IOException {
         if (IRS.getLinkedHashMap().get(1) == null) {
-            Utility.showDialog("Basic Info", BASIC_INFO_NOTFOUND, true);
+            IRSDialog.showAlert("Static Header", BASIC_INFO_NOTFOUND);
             return;
         }
         BasicInfoVO basicInfo = (BasicInfoVO) IRS.getLinkedHashMap().get(1);
@@ -187,10 +187,11 @@ public class MainController implements Initializable, ErrorNameDesc, Messages {
     /**
      **This method provide interface to load upload UI
      *
+     * @throws java.io.IOException
      */
     public void loadXLS() throws IOException {
         if (IRS.getLinkedHashMap().get(1) == null) {
-            Utility.showDialog("Basic Info", BASIC_INFO_NOTFOUND, true);
+            IRSDialog.showAlert("Basic Info", BASIC_INFO_NOTFOUND);
             return;
         }
         IRS.setUploadXlsUI(new UploadTemplateUI().root);
@@ -204,7 +205,7 @@ public class MainController implements Initializable, ErrorNameDesc, Messages {
         centerPane.getChildren().add(IRS.getUploadXlsUI());
     }
 
-    public void viewXLS(SpreadsheetView view) {
+    public void viewXLS(SpreadsheetView view) throws Exception {
         AnchorPane root = new SpreadsheetViewUI(view).root;
         AnchorPane.setTopAnchor(root, 0.0);
         AnchorPane.setRightAnchor(root, 0.0);

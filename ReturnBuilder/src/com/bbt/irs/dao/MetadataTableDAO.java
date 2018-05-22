@@ -49,31 +49,36 @@ public class MetadataTableDAO {
                 metadata.setHeaderDesc(headerInfoVO.getCellName());
                 metadata.setHeaderPosition(headerInfoVO.getCellNO());
                 metadata.setTableName(IRS.getTableNames().get(i));
-                metadata.setDataType(headerInfoVO.getDataType().getId());
-                metadata.setDataSize(headerInfoVO.getDataSize().getId());
-                System.out.println("headerInfoVO.getCellNO() "+headerInfoVO.getCellNO());
+                metadata.setDatatypeId(headerInfoVO.getDataType());
+                metadata.setCreatedBy("System");
+                metadata.setCreatedDate(Utility.getCurrentTime());
+                metadata.setLastModified(Utility.getCurrentTime());
+                metadata.setModifiedBy("SYSTEM");
+                System.out.println("headerInfoVO.getDataSize().getId() " + headerInfoVO.getDataSize());
+                metadata.setDatasizeId(headerInfoVO.getDataSize());
+                System.out.println("cellno to determine getActualLabel  " + headerInfoVO.getCellNO());
                 metadata.setActualTable(getActualLabel(headerInfoVO.getCellNO()));
 
-                em.persist(metadata);
+                IRS.getEm().persist(metadata);
             }
         }
-        
+
         //em.getTransaction().commit();
         result = true;
 
         return result;
 
     }
-    
-     public String getActualLabel(String cellno) {
+
+    public String getActualLabel(String cellno) {
         Pair pair = Utility.convertExcelCellToPair(cellno);
         int numRows = (int) pair.getKey();
-         System.out.println("numRows "+numRows);
-         System.out.println("pair.getValue() "+pair.getValue());
+        System.out.println("numRows ActualLabel " + numRows);
+        System.out.println("pair.getValue() ActualLabel " + pair.getValue());
         Row row = IRS.getPoisheet().getRow(numRows);
         Cell cell = row.getCell((int) pair.getValue());
         String label = ExcelView.getCellValueAsString(cell);
-         System.out.println("getActualLabel "+label);
+        System.out.println("getActualLabel " + label);
         return label;
     }
 }

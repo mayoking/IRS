@@ -6,11 +6,14 @@
 package com.bbt.irs.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -18,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author opeyemi
  */
 @Entity
-@Table(name = "datasize")
+@Table(name = "t_rb_datasize")
 @XmlRootElement
 //@NamedQueries({
 //    @NamedQuery(name = "Datasize.findAll", query = "SELECT d FROM Datasize d")
@@ -27,59 +30,115 @@ import javax.xml.bind.annotation.XmlRootElement;
 //    , @NamedQuery(name = "Datasize.findByDataSize", query = "SELECT d FROM Datasize d WHERE d.dataSize = :dataSize")})
 public class Datasize implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+   
+
     @Id
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "datasize_id")
+    private Integer datasizeId;
     @Basic(optional = false)
-    @Column(name = "data_size_desc")
-    private String dataSizeDesc;
+    @Column(name = "datasize")
+    private String datasize;
     @Basic(optional = false)
-    @Column(name = "data_size")
-    private String dataSize;
+    @Column(name = "datasize_desc")
+    private String datasizeDesc;
+    @Column(name = "created_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+    @Column(name = "created_by")
+    private String createdBy;
+    @Basic(optional = false)
+    @Column(name = "last_modified")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModified;
+    @Basic(optional = false)
+    @Column(name = "modified_by")
+    private String modifiedBy;
+ 
+
+    private static final long serialVersionUID = 1L;
+    
 
     public Datasize() {
     }
 
-    public Datasize(Integer id) {
-        this.id = id;
+   
+
+
+    public Datasize(Integer datasizeId) {
+        this.datasizeId = datasizeId;
     }
 
-    public Datasize(Integer id, String dataSizeDesc, String dataSize) {
-        this.id = id;
-        this.dataSizeDesc = dataSizeDesc;
-        this.dataSize = dataSize;
+//    public Datasize(Integer datasizeId, String datasize, String datasizeDesc, Date lastModified, String modifiedBy) {
+//        this.datasizeId = datasizeId;
+//        this.datasize = datasize;
+//        this.datasizeDesc = datasizeDesc;
+//        this.lastModified = lastModified;
+//        this.modifiedBy = modifiedBy;
+//    }
+
+    public Integer getDatasizeId() {
+        return datasizeId;
     }
 
-    public Integer getId() {
-        return id;
+    public void setDatasizeId(Integer datasizeId) {
+        this.datasizeId = datasizeId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getDatasize() {
+        return datasize;
     }
 
-    public String getDataSizeDesc() {
-        return dataSizeDesc;
+    public void setDatasize(String datasize) {
+        this.datasize = datasize;
     }
 
-    public void setDataSizeDesc(String dataSizeDesc) {
-        this.dataSizeDesc = dataSizeDesc;
+    public String getDatasizeDesc() {
+        return datasizeDesc;
     }
 
-    public String getDataSize() {
-        return dataSize;
+    public void setDatasizeDesc(String datasizeDesc) {
+        this.datasizeDesc = datasizeDesc;
     }
 
-    public void setDataSize(String dataSize) {
-        this.dataSize = dataSize;
+    public Date getCreatedDate() {
+        return createdDate;
     }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+   
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (datasizeId != null ? datasizeId.hashCode() : 0);
         return hash;
     }
 
@@ -90,7 +149,7 @@ public class Datasize implements Serializable {
             return false;
         }
         Datasize other = (Datasize) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.datasizeId == null && other.datasizeId != null) || (this.datasizeId != null && !this.datasizeId.equals(other.datasizeId))) {
             return false;
         }
         return true;
@@ -98,7 +157,9 @@ public class Datasize implements Serializable {
 
     @Override
     public String toString() {
-        return dataSizeDesc;
+        return datasizeDesc;
     }
+
+
     
 }

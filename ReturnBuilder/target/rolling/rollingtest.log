@@ -1,1 +1,5 @@
-2018-05-04 11:29:10,602 INFO c.b.i.x.XMLGenerator [JavaFX Application Thread] com.sun.org.apache.xml.internal.serialize.XMLSerializer@1e0c3415
+2018-05-22 10:45:11,237 INFO c.b.i.c.LoginController [JavaFX Application Thread] You clicked me!
+2018-05-22 10:45:11,251 INFO c.b.i.c.LoginController [JavaFX Application Thread] username is r
+2018-05-22 10:45:11,268 INFO c.b.i.c.MainController [JavaFX Application Thread] About to load menu and panes
+2018-05-22 10:45:11,269 INFO c.b.i.c.MainController [JavaFX Application Thread] About to load side menu 
+2018-05-22 10:45:11,379 INFO c.b.i.c.MainController [JavaFX Application Thread] Menu and Pane loaded

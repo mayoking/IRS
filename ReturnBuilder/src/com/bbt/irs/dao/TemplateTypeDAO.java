@@ -5,9 +5,8 @@
  */
 package com.bbt.irs.dao;
 
-import static com.bbt.irs.dao.DAOConstants.GETRITYPE;
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.TemplateType;
-import com.bbt.irs.vo.DataType;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,11 +20,11 @@ import javax.persistence.Query;
 public class TemplateTypeDAO implements DAOConstants {
     EntityManagerFactory emf;
 
-    public List<TemplateType> getTemplateType() {
+    public List<TemplateType> getTemplateType() throws Exception {
         List<TemplateType> list;
-        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
-        EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery(GETTEMPLATETYPE);
+//        this.emf = Persistence.createEntityManagerFactory("ReturnBuilderPU");
+//        EntityManager em = emf.createEntityManager();
+        Query query = IRS.getEm().createQuery(GETTEMPLATETYPE);
         list = query.getResultList();
 
         return list;

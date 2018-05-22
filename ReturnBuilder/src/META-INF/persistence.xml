@@ -12,6 +12,19 @@
     <class>com.bbt.irs.entity.TRtnWorkCollectionSchedule</class>
     <class>com.bbt.irs.entity.TemplateType</class>
     <class>com.bbt.irs.entity.ArtifactTable</class>
+    <class>com.bbt.irs.entity.TRbExtractionInfo</class>
+    <class>com.bbt.irs.entity.TRbArtifact</class>
+    <class>com.bbt.irs.entity.TRbMetadata</class>
+    <class>com.bbt.irs.entity.TWorkflowModule</class>
+    <class>com.bbt.irs.entity.TWorkflowState</class>
+    <class>com.bbt.irs.entity.TWorkflowStateType</class>
+    <class>com.bbt.irs.entity.TWorkflowAction</class>
+    <class>com.bbt.irs.entity.TWorkflow</class>
+    <class>com.bbt.irs.entity.TRtnWorkCollection</class>
+    <class>com.bbt.irs.entity.TLkupFrequency</class>
+    <class>com.bbt.irs.entity.TRtnReturnsDetails</class>
+    <class>com.bbt.irs.entity.TRtnReturnsWorkCollectionMapping</class>
+    <class>com.bbt.irs.entity.TRbMergedtype</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://127.0.0.1;databaseName=RBSCT"/>
       <property name="javax.persistence.jdbc.user" value="irs"/>

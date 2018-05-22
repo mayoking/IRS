@@ -6,7 +6,8 @@
 package com.bbt.irs.vo;
 
 import com.bbt.irs.entity.TCoreRiType;
-import com.bbt.irs.entity.TRtnWorkCollectionSchedule;
+import com.bbt.irs.entity.TLkupFrequency;
+import com.bbt.irs.entity.TRtnWorkCollection;
 import com.bbt.irs.entity.TemplateType;
 
 /**
@@ -14,6 +15,20 @@ import com.bbt.irs.entity.TemplateType;
  * @author opeyemi
  */
 public class BasicInfoVO {
+
+    /**
+     * @return the afiliate
+     */
+    public String getAfiliate() {
+        return afiliate;
+    }
+
+    /**
+     * @param afiliate the afiliate to set
+     */
+    public void setAfiliate(String afiliate) {
+        this.afiliate = afiliate;
+    }
 
     /**
      * @return the templateCode
@@ -60,15 +75,15 @@ public class BasicInfoVO {
     /**
      * @return the workCollections
      */
-    public TRtnWorkCollectionSchedule getWorkCollections() {
-        return workCollections;
+    public TLkupFrequency getFrequncyCollections() {
+        return frequncyCollections;
     }
 
     /**
-     * @param workCollections the workCollections to set
+     * @param frequncyCollections the workCollections to set
      */
-    public void setWorkCollections(TRtnWorkCollectionSchedule workCollections) {
-        this.workCollections = workCollections;
+    public void setFrequncyCollections(TLkupFrequency frequncyCollections) {
+        this.frequncyCollections = frequncyCollections;
     }
 
     /**
@@ -104,7 +119,8 @@ public class BasicInfoVO {
     private String templateCode;
     private String templateDesc;
     private String numTables;
-    private TRtnWorkCollectionSchedule workCollections;
+    private String afiliate;
+    private TLkupFrequency frequncyCollections;
     private TemplateType templateType;
     private TCoreRiType Ritype;
 }

@@ -5,14 +5,14 @@
  */
 package com.bbt.irs.dao;
 
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.ExtractionTableInfo;
+import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;
 import com.bbt.irs.vo.HeaderInfoVO;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -33,8 +33,12 @@ public class ExtractionInfoDAO {
             ExtractionTableInfo extractionTableInfo = new ExtractionTableInfo();
             extractionTableInfo.setTemplateCode(basicInfo.getTemplateCode());
             extractionTableInfo.setTemplateName(basicInfo.getTemplateCode());
-            extractionTableInfo.setTemplateType(basicInfo.getTemplateType().getId());
-            em.persist(extractionTableInfo);
+            extractionTableInfo.setTemplateType(basicInfo.getTemplateType().getTemplateId());
+            extractionTableInfo.setCreatedBy("System");
+            extractionTableInfo.setCreatedDate(Utility.getCurrentTime());
+            extractionTableInfo.setLastModified(Utility.getCurrentTime());
+            extractionTableInfo.setModifiedBy("SYSTEM");
+            IRS.getEm().persist(extractionTableInfo);
 
             result = true;
 

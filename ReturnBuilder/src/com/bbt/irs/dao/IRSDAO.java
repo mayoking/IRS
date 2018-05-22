@@ -5,6 +5,9 @@
  */
 package com.bbt.irs.dao;
 
+import com.bbt.irs.deploy.ErrorNameDesc;
+import com.bbt.irs.deploy.IRSDialog;
+import com.bbt.irs.deploy.Messages;
 import com.bbt.irs.util.Utility;
 import java.util.LinkedHashMap;
 import javax.persistence.EntityManager;
@@ -17,7 +20,7 @@ import org.apache.logging.log4j.LogManager;
  *
  * @author opeyemi
  */
-public class IRSDAO {
+public class IRSDAO implements Messages,ErrorNameDesc {
 
     private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(IRSDAO.class);
 
@@ -50,9 +53,8 @@ public class IRSDAO {
             System.out.println("transaction closed");
             result = true;
         } catch (Exception ex) {
-            Utility.showDialog("Unable to save the information to data store", true);
-            System.out.println("there is exception");
-            ex.printStackTrace();
+            IRSDialog.showAlert(ERROR, "Unable to save the information to data store");
+            LOGGER.log(Level.FATAL, "Unable to save the information to data store", ex);
             result = false;
 
             if (em != null) {

@@ -127,7 +127,7 @@ public class IRSDialog implements Messages{
         root.getChildren().add(message);
         root.getChildren().add(ok);
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(IRSDialog.class.getResource("com/bbt/irs/resources/css/mystyle_2.css").toExternalForm());
+        scene.getStylesheets().add(IRSDialog.class.getResource("/com/bbt/irs/resources/css/mystyle_2.css").toExternalForm());
         stage.setScene(scene);
         return stage;
     }

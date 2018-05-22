@@ -1,0 +1,269 @@
+2018-05-12 18:16:48,412 INFO c.b.i.x.XMLGenerator [JavaFX Application Thread] <?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <package>
+        <package_code>WC_CMB_001</package_code>
+        <header>
+            <bank_code>0</bank_code>
+            <as_at>0</as_at>
+        </header>
+        <document>
+            <document_WC_CMB_001>
+                <WBR123>
+                    <section section_code="0">
+                        <code header="ITEM_CODE" item_code="">
+                            <data_str code="8" header="DESCS1"/>
+                            <data_str code="8" header="DESCS2"/>
+                            <data_str code="8" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="">
+                            <data_str code="9" header="DESCS1">DEPOSIT RATES</data_str>
+                            <data_str code="9" header="DESCS2"/>
+                            <data_str code="9" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10001">
+                            <data_str code="10" header="DESCS1">DEMAND DEPOSIT</data_str>
+                            <data_str code="10" header="DESCS2">AVE. INT. RATE</data_str>
+                            <data_str code="10" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10002">
+                            <data_str code="11" header="DESCS1">SAVINGS DEPOSIT</data_str>
+                            <data_str code="11" header="DESCS2">AVE. INT. RATE</data_str>
+                            <data_str code="11" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10003">
+                            <data_str code="12" header="DESCS1">TIME DEPOSIT</data_str>
+                            <data_str code="12" header="DESCS2">AVE. INT. RATE</data_str>
+                            <data_str code="12" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="">
+                            <data_str code="13" header="DESCS1"/>
+                            <data_str code="13" header="DESCS2"/>
+                            <data_str code="13" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="">
+                            <data_str code="14" header="DESCS1">LENDING RATES</data_str>
+                            <data_str code="14" header="DESCS2"/>
+                            <data_str code="14" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10004">
+                            <data_str code="15" header="DESCS1">AGRICULTURE, FORESTRY AND FISHING</data_str>
+                            <data_str code="15" header="DESCS2">PRIME</data_str>
+                            <data_str code="15" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10005">
+                            <data_str code="16" header="DESCS1"/>
+                            <data_str code="16" header="DESCS2">MAX.</data_str>
+                            <data_str code="16" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10006">
+                            <data_str code="17" header="DESCS1">MINING &amp; QUARRYING</data_str>
+                            <data_str code="17" header="DESCS2">PRIME</data_str>
+                            <data_str code="17" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10007">
+                            <data_str code="18" header="DESCS1"/>
+                            <data_str code="18" header="DESCS2">MAX.</data_str>
+                            <data_str code="18" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10008">
+                            <data_str code="19" header="DESCS1">MANUFACTURING</data_str>
+                            <data_str code="19" header="DESCS2">PRIME</data_str>
+                            <data_str code="19" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10009">
+                            <data_str code="20" header="DESCS1"/>
+                            <data_str code="20" header="DESCS2">MAX.</data_str>
+                            <data_str code="20" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10010">
+                            <data_str code="21" header="DESCS1">REAL ESTATE ACTIVITIES</data_str>
+                            <data_str code="21" header="DESCS2">PRIME</data_str>
+                            <data_str code="21" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10011">
+                            <data_str code="22" header="DESCS1"/>
+                            <data_str code="22" header="DESCS2">MAX.</data_str>
+                            <data_str code="22" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10012">
+                            <data_str code="23" header="DESCS1">PUBLIC UTILITIES</data_str>
+                            <data_str code="23" header="DESCS2">PRIME</data_str>
+                            <data_str code="23" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10013">
+                            <data_str code="24" header="DESCS1"/>
+                            <data_str code="24" header="DESCS2">MAX.</data_str>
+                            <data_str code="24" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10014">
+                            <data_str code="25" header="DESCS1">GENERAL COMMERCE</data_str>
+                            <data_str code="25" header="DESCS2">PRIME</data_str>
+                            <data_str code="25" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10015">
+                            <data_str code="26" header="DESCS1"/>
+                            <data_str code="26" header="DESCS2">MAX.</data_str>
+                            <data_str code="26" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10016">
+                            <data_str code="27" header="DESCS1">TRANSPORTATION &amp; STORAGE</data_str>
+                            <data_str code="27" header="DESCS2">PRIME</data_str>
+                            <data_str code="27" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10017">
+                            <data_str code="28" header="DESCS1"/>
+                            <data_str code="28" header="DESCS2">MAX.</data_str>
+                            <data_str code="28" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10018">
+                            <data_str code="29" header="DESCS1">FINANCE &amp; INSURANCE</data_str>
+                            <data_str code="29" header="DESCS2">PRIME</data_str>
+                            <data_str code="29" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10019">
+                            <data_str code="30" header="DESCS1"/>
+                            <data_str code="30" header="DESCS2">MAX.</data_str>
+                            <data_str code="30" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10020">
+                            <data_str code="31" header="DESCS1">GENERAL</data_str>
+                            <data_str code="31" header="DESCS2">PRIME</data_str>
+                            <data_str code="31" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10021">
+                            <data_str code="32" header="DESCS1"/>
+                            <data_str code="32" header="DESCS2">MAX.</data_str>
+                            <data_str code="32" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10022">
+                            <data_str code="33" header="DESCS1">GOVERNMENT</data_str>
+                            <data_str code="33" header="DESCS2">PRIME</data_str>
+                            <data_str code="33" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10023">
+                            <data_str code="34" header="DESCS1"/>
+                            <data_str code="34" header="DESCS2">MAX.</data_str>
+                            <data_str code="34" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10024">
+                            <data_str code="35" header="DESCS1">WATER SUPPLY SEWAGE, WASTE MANAGEMENT AND REMEDIATION ACTIVITIES</data_str>
+                            <data_str code="35" header="DESCS2">PRIME</data_str>
+                            <data_str code="35" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10025">
+                            <data_str code="36" header="DESCS1"/>
+                            <data_str code="36" header="DESCS2">MAX.</data_str>
+                            <data_str code="36" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10026">
+                            <data_str code="37" header="DESCS1">CONSTRUCTION</data_str>
+                            <data_str code="37" header="DESCS2">PRIME</data_str>
+                            <data_str code="37" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10027">
+                            <data_str code="38" header="DESCS1"/>
+                            <data_str code="38" header="DESCS2">MAX.</data_str>
+                            <data_str code="38" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10028">
+                            <data_str code="39" header="DESCS1">INFORMATION AND COMMUNICATION</data_str>
+                            <data_str code="39" header="DESCS2">PRIME</data_str>
+                            <data_str code="39" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10029">
+                            <data_str code="40" header="DESCS1"/>
+                            <data_str code="40" header="DESCS2">MAX.</data_str>
+                            <data_str code="40" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10030">
+                            <data_str code="41" header="DESCS1">PROFESSIONAL, SCIENTIFIC AND TECHNICAL ACTIVITIES</data_str>
+                            <data_str code="41" header="DESCS2">PRIME</data_str>
+                            <data_str code="41" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10031">
+                            <data_str code="42" header="DESCS1"/>
+                            <data_str code="42" header="DESCS2">MAX.</data_str>
+                            <data_str code="42" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10032">
+                            <data_str code="43" header="DESCS1">ADMINISTRATIVE AND SUPPORT SERVICE ACTIVITIES</data_str>
+                            <data_str code="43" header="DESCS2">PRIME</data_str>
+                            <data_str code="43" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10033">
+                            <data_str code="44" header="DESCS1"/>
+                            <data_str code="44" header="DESCS2">MAX.</data_str>
+                            <data_str code="44" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10034">
+                            <data_str code="45" header="DESCS1">EDUCATION</data_str>
+                            <data_str code="45" header="DESCS2">PRIME</data_str>
+                            <data_str code="45" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10035">
+                            <data_str code="46" header="DESCS1"/>
+                            <data_str code="46" header="DESCS2">MAX.</data_str>
+                            <data_str code="46" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10036">
+                            <data_str code="47" header="DESCS1">HUMAN HEALTH AND SOCIAL WORK ACTIVITIES</data_str>
+                            <data_str code="47" header="DESCS2">PRIME</data_str>
+                            <data_str code="47" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10037">
+                            <data_str code="48" header="DESCS1"/>
+                            <data_str code="48" header="DESCS2">MAX.</data_str>
+                            <data_str code="48" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10038">
+                            <data_str code="49" header="DESCS1">ARTS, ENTERTAINMENT AND RECREATION</data_str>
+                            <data_str code="49" header="DESCS2">PRIME</data_str>
+                            <data_str code="49" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10039">
+                            <data_str code="50" header="DESCS1"/>
+                            <data_str code="50" header="DESCS2">MAX.</data_str>
+                            <data_str code="50" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10040">
+                            <data_str code="51" header="DESCS1">ACTIVITIES OF EXTRATERRITORIAL ORGANIZATIONS AND BODIES</data_str>
+                            <data_str code="51" header="DESCS2">PRIME</data_str>
+                            <data_str code="51" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10041">
+                            <data_str code="52" header="DESCS1"/>
+                            <data_str code="52" header="DESCS2">MAX.</data_str>
+                            <data_str code="52" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10042">
+                            <data_str code="53" header="DESCS1">POWER AND ENERGY</data_str>
+                            <data_str code="53" header="DESCS2">PRIME</data_str>
+                            <data_str code="53" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10043">
+                            <data_str code="54" header="DESCS1"/>
+                            <data_str code="54" header="DESCS2">MAX.</data_str>
+                            <data_str code="54" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10044">
+                            <data_str code="55" header="DESCS1">CAPITAL MARKET</data_str>
+                            <data_str code="55" header="DESCS2">PRIME</data_str>
+                            <data_str code="55" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10045">
+                            <data_str code="56" header="DESCS1"/>
+                            <data_str code="56" header="DESCS2">MAX.</data_str>
+                            <data_str code="56" header="RATE"/>
+                        </code>
+                        <code header="ITEM_CODE" item_code="10046">
+                            <data_str code="57" header="DESCS1">OIL &amp; GAS</data_str>
+                            <data_str code="57" header="DESCS2">PRIME</data_str>
+                            <data_str code="57" header="RATE"/>
+                        </code>
+                    </section>
+                </WBR123>
+            </document_WC_CMB_001>
+        </document>
+    </package>
+</template>
+

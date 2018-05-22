@@ -5,6 +5,7 @@
  */
 package com.bbt.irs.dao;
 
+import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.entity.TRtnReturns;
 import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.BasicInfoVO;
@@ -28,11 +29,15 @@ public class ReturnsDAO {
     public boolean addReturns(LinkedHashMap linkedHashMap)  throws Exception  {
         BasicInfoVO basicInfo = (BasicInfoVO) linkedHashMap.get(1);
         LinkedHashMap<Integer, LinkedList<HeaderInfoVO>> headerInfos = (LinkedHashMap<Integer, LinkedList<HeaderInfoVO>>) linkedHashMap.get(2);
-        boolean result = false;
-            TRtnReturns trtnReturns = new TRtnReturns(basicInfo.getTemplateCode(), Utility.getCurrentTime(), basicInfo.getWorkCollections().getFrequency());
+        boolean result;
+            TRtnReturns trtnReturns = new TRtnReturns(basicInfo.getTemplateCode());
             trtnReturns.setDescription(basicInfo.getTemplateDesc());
+            trtnReturns.setCreatedBy("System");
+            trtnReturns.setCreatedDate(Utility.getCurrentTime());
+            trtnReturns.setLastModified(Utility.getCurrentTime());
+            trtnReturns.setModifiedBy("SYSTEM");
             //em.getTransaction().begin();
-            em.persist(trtnReturns);
+            IRS.getEm().persist(trtnReturns);
             //em.getTransaction().commit();
             result = true;
             //em.close();

@@ -6,6 +6,8 @@
 package com.bbt.irs.deploy;
 
 import com.bbt.irs.controller.LoginController;
+import com.bbt.irs.util.ConfigUtility;
+import com.bbt.irs.util.ReadProperty4romXML;
 import com.bbt.irs.util.Utility;
 import com.bbt.irs.vo.HeaderInfoVO;
 import java.io.IOException;
@@ -24,16 +26,56 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.w3c.dom.Document;
-
-
 
 /**
  *
  * @author opeyemi
  */
-public class IRS extends Application implements Messages {
+public class IRS extends Application implements Messages, ErrorNameDesc {
+
+    /**
+     * @return the createdTableNames
+     */
+    public static List<String> getCreatedTableNames() {
+        return createdTableNames;
+    }
+
+    /**
+     * @param aCreatedTableNames the createdTableNames to set
+     */
+    public static void setCreatedTableNames(List<String> aCreatedTableNames) {
+        createdTableNames = aCreatedTableNames;
+    }
+
+    /**
+     * @return the em
+     */
+    public static EntityManager getEm() {
+        if(em==null || !em.isOpen()){
+            try {
+                em = ReadProperty4romXML.populatePersistenceFile();
+            } catch (Exception ex) {
+                LOGGER.log(Level.FATAL, "Unable to populate persistence file", ex);;
+            }
+        }
+        return em;
+    }
+
+    /**
+     * @return the entityManagerFactory
+     */
+    public static EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
+    }
+
+
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(IRS.class);
 
     /**
      * @return the headerInfo
@@ -104,7 +146,6 @@ public class IRS extends Application implements Messages {
     public static void setExcelPath(String aExcelPath) {
         excelPath = aExcelPath;
     }
-   
 
     /**
      * @return the tableNames
@@ -133,7 +174,6 @@ public class IRS extends Application implements Messages {
     public static void setDocument(Document aDocument) {
         document = aDocument;
     }
-
 
     /**
      * @return the poisheet
@@ -219,6 +259,24 @@ public class IRS extends Application implements Messages {
         linkedHashMap = aLinkedHashMap;
     }
 
+   private static void Configure() {
+        try {
+            ConfigUtility.loadProperties();
+        } catch (IOException ex) {
+            IRSDialog.showAlert(ERROR, ERROR_LOAD_PROPERTY_FILE);
+            LOGGER.log(Level.FATAL, ERROR_LOAD_PROPERTY_FILE, ex);
+        }
+        try {
+            //        entityManagerFactory = ReadProperty4romXML.populatePersistenceFile();//LOGGER
+            em = ReadProperty4romXML.populatePersistenceFile();//LOGGER
+            
+        } catch (Exception ex) {
+            IRSDialog.showAlert("Error", "Unable to read or save property of XML");
+           LOGGER.log(Level.FATAL, "Unable to read or save property of XML", ex);
+        }
+        
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -227,19 +285,19 @@ public class IRS extends Application implements Messages {
 
         instance = this;
         this.loginStage = stage;
-       // lock = Authenticator.checkApplicationLock();
-        if (false) {
+        // lock = Authenticator.checkApplicationLock();
+        if (lock) {
             open = IRSDialog.showConfirmDialog("Error", "Application Locked.\r\n Do you want to unlock?");
             System.out.println("ADADADA" + open);
             if (open) {
                 final Stage mystage = IRSDialog.createDialogStage();
                 FXMLLoader loader = new FXMLLoader();
 
-                Parent root = (Parent) loader.load(getClass().getResourceAsStream("com/bbt/irs/fxml/dialogUnlockAppLock.fxml"));
+                Parent root = (Parent) loader.load(getClass().getResourceAsStream("/com/bbt/irs/fxml/dialogUnlockAppLock.fxml"));
 
                 Scene scene = new Scene(root);
                 scene.getStylesheets().add(getClass().getResource("mystyle.css").toExternalForm());
-                scene.getStylesheets().add("com/bbt/irs/teststyle.css");
+                scene.getStylesheets().add("/com/bbt/irs/teststyle.css");
                 mystage.setScene(scene);
                 mystage.setHeight(400.0D);
                 mystage.setWidth(600.0D);
@@ -250,6 +308,7 @@ public class IRS extends Application implements Messages {
         }
 
         loadLoginStage();
+        Configure();
 
     }
 
@@ -286,7 +345,7 @@ public class IRS extends Application implements Messages {
 
         }
         FXMLLoader loader = new FXMLLoader();
-        Parent root = (Parent) loader.load(getClass().getResourceAsStream(FXMLPATH+"login.fxml"));
+        Parent root = (Parent) loader.load(getClass().getResourceAsStream(FXMLPATH + "login.fxml"));
         loginController = loader.getController();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/com/bbt/irs/resources/css/mystyle_1.css").toExternalForm());
@@ -302,6 +361,14 @@ public class IRS extends Application implements Messages {
         setApplicationCloseEventHandlers(loginStage);
         setApplicationStopEventHandlers(loginStage);
         loginStage.show();
+//        try {
+//            //        entityManagerFactory = ReadProperty4romXML.populatePersistenceFile();//LOGGER
+//            em = ReadProperty4romXML.populatePersistenceFile();//LOGGER
+//            
+//        } catch (Exception ex) {
+//            IRSDialog.showAlert("Error", "Unable to read or save property of XML");
+//           LOGGER.log(Level.FATAL, "Unable to read or save property of XML", ex);
+//        }
         return true;
     }
 
@@ -310,13 +377,13 @@ public class IRS extends Application implements Messages {
         try {
 
             FXMLLoader loader = new FXMLLoader();
-            Parent root = (Parent) loader.load(getClass().getResourceAsStream(FXMLPATH+"main.fxml"));
+            Parent root = (Parent) loader.load(getClass().getResourceAsStream(FXMLPATH + "main.fxml"));
             scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource(CSSPATH+"calendar_styles.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(CSSPATH+"mystyle.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(CSSPATH+"test.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(CSSPATH+"calendarstyle.css").toExternalForm());
-            scene.getStylesheets().add(CSSPATH+"teststyle.css");
+            scene.getStylesheets().add(getClass().getResource(CSSPATH + "calendar_styles.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(CSSPATH + "mystyle.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(CSSPATH + "test.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(CSSPATH + "calendarstyle.css").toExternalForm());
+            scene.getStylesheets().add(CSSPATH + "teststyle.css");
             Stage stage = new Stage();
             setMainStage(stage);
             stage.setScene(scene);
@@ -396,16 +463,16 @@ public class IRS extends Application implements Messages {
         });
     }
 
-    public static List<Pair<Integer,Integer>> getHeadersPairs() {
-         List<Pair<Integer,Integer>> ls = new ArrayList();
-         System.out.println("");
-        for(int i=0;i<getAllHeaderInfo().size();i++){
-            LinkedList<HeaderInfoVO> linkedList = getAllHeaderInfo().get(i+1);
-            System.out.println("pairs size "+linkedList.size());
+    public static List<Pair<Integer, Integer>> getHeadersPairs() {
+        List<Pair<Integer, Integer>> ls = new ArrayList();
+        System.out.println("");
+        for (int i = 0; i < getAllHeaderInfo().size(); i++) {
+            LinkedList<HeaderInfoVO> linkedList = getAllHeaderInfo().get(i + 1);
+            System.out.println("pairs size " + linkedList.size());
             linkedList.forEach((linkedList1) -> {
                 ls.add(Utility.convertExcelCellToPair(linkedList1.getCellNO()));
-             });
-        } 
+            });
+        }
         return ls;
     }
     private Stage mainStage;
@@ -413,7 +480,6 @@ public class IRS extends Application implements Messages {
     private static IRS instance;
     public static String loginUser;
     public static Stage loginStage;
-    
 
     /**
      * It contains the object based on the order of the front end interface
@@ -429,9 +495,30 @@ public class IRS extends Application implements Messages {
     private static Document document;
     private static LinkedList<String> tableNames = new LinkedList();
     private static String excelPath;
-    private static boolean headerInfoCompleted=false;
+    private static boolean headerInfoCompleted = false;
     private static AnchorPane basicInfoRoot;
     private static AnchorPane uploadXlsUI;
     private static AnchorPane headerInfo;
+    private static  EntityManagerFactory entityManagerFactory=null;
+    private static  EntityManager em;
+    private static  List<String> createdTableNames;
+    /**
+     * This was introduced to make previous button to work
+     */
+    private static LinkedList<AnchorPane> headerInfoList = new LinkedList();
     public static Scene scene;
+
+    /**
+     * @return the headerInfoList
+     */
+    public static LinkedList<AnchorPane> getHeaderInfoList() {
+        return headerInfoList;
+    }
+
+    /**
+     * @param aHeaderInfoList the headerInfoList to set
+     */
+    public static void setHeaderInfoList(LinkedList<AnchorPane> aHeaderInfoList) {
+        headerInfoList = aHeaderInfoList;
+    }
 }

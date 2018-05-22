@@ -37,7 +37,12 @@ public class ArtifactDAO  {
             ArtifactTable artifact = new ArtifactTable();
             artifact.setReturnCode(basicInfo.getTemplateCode());
             artifact.setSampleXml(Utility.convertDocument2Byte(IRS.getDocument()));
-            artifact.setXlsPath("");
+            artifact.setLastModified(Utility.getCurrentTime());
+            artifact.setCreatedDate(Utility.getCurrentTime());
+            artifact.setCreatedBy("SYSTEM");
+            artifact.setLastModified(Utility.getCurrentTime());
+            artifact.setModifiedBy("SYSTEM");
+            artifact.setXlsPath(IRS.getExcelPath());
             em.persist(artifact);
             result = true;
             //em.close();

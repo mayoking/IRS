@@ -5,7 +5,7 @@
  */
 package com.bbt.irs.util;
 
-import com.bbt.dialogfx.DialogFX;
+
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
 import java.util.logging.Level;
@@ -17,7 +17,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import static jdk.nashorn.internal.objects.NativeRegExp.source;
 import org.w3c.dom.Document;
 
 /**
@@ -26,41 +25,14 @@ import org.w3c.dom.Document;
  */
 public class Utility {
 
-    /**
+  
+   
+
+  /**
      *
+     * @param alphabet
+     * @return 
      */
-    protected static DialogFX dialogFX = new DialogFX();
-
-    public static int showDialog(String title, String message, boolean error) {
-        String messages = String.format(message, title);
-        if (error) {
-            dialogFX.setType(DialogFX.Type.ERROR);
-        } else {
-            dialogFX.setType(DialogFX.Type.INFO);
-        }
-        dialogFX.setTitleText(title);
-        dialogFX.setMessage(messages);
-        return dialogFX.showDialog();
-
-    }
-
-    public static int showDialog(String message, boolean error) {
-        String messages = String.format(message);
-        String tittle = null;
-        if (error) {
-            dialogFX.setType(DialogFX.Type.ERROR);
-            tittle = "ERROR!!!";
-        } else {
-            dialogFX.setType(DialogFX.Type.INFO);
-            tittle = "Info";
-        }
-        dialogFX.setTitleText(tittle);
-        dialogFX.setMessage(messages);
-
-        return dialogFX.showDialog();
-
-    }
-
     public static int convertAlphabetToNumber(String alphabet) {
         int result = 0;
         switch (alphabet) {

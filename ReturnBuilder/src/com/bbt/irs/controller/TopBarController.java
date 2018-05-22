@@ -9,15 +9,16 @@ import com.bbt.irs.deploy.Version;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 
 public class TopBarController implements Initializable{
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(MainController.class);
     @FXML
     private Label version;
     @FXML
@@ -37,7 +38,7 @@ public class TopBarController implements Initializable{
         try {
             IRS.getInstance().loadLoginStage();
         } catch (IOException ex) {
-            Logger.getLogger(TopBarController.class.getName()).log(Level.SEVERE, null, ex);
+            LOGGER.log(Level.FATAL, "ERROR_MENU", ex);
         }
     }
    

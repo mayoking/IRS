@@ -66,7 +66,8 @@ public class MenuController extends Accordion implements Initializable,Messages 
          try {
             MainController.getInstance().loadBasicInfo();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            
+            LOGGER.log(Level.FATAL,"Unable to Add Basic Info ",ex);
         }
     }
     @FXML
@@ -88,7 +89,7 @@ public class MenuController extends Accordion implements Initializable,Messages 
         try {
             MainController.getInstance().loadXLS();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.log(Level.FATAL,"Unable to Upload XLS",ex);
         }
     }
     
@@ -97,7 +98,7 @@ public class MenuController extends Accordion implements Initializable,Messages 
         try {
             MainController.getInstance().loadXLS();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.log(Level.FATAL,"Unable to confirm Input",ex);
         }
     }
 

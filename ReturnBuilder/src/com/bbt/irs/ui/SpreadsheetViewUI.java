@@ -6,12 +6,14 @@
 package com.bbt.irs.ui;
 
 import com.bbt.irs.controller.MainController;
+import com.bbt.irs.dao.CreateTableDAO;
 import com.bbt.irs.dao.TestDAO;
 import com.bbt.irs.deploy.IRS;
 import com.bbt.irs.deploy.IRSDialog;
 import com.bbt.irs.deploy.TableGenerator;
 import com.bbt.irs.xml.XMLGenerator;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -25,14 +27,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javax.persistence.PersistenceException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.apache.logging.log4j.LogManager;
 import org.controlsfx.control.spreadsheet.SpreadsheetView;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.ls.LSException;
 
 /**
  *
  * @author opeyemi
  */
 public class SpreadsheetViewUI {
-
+private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(SpreadsheetViewUI.class);
     public AnchorPane root = new AnchorPane();
     ScrollPane scroll = new ScrollPane();
     AnchorPane subRoot = new AnchorPane();
@@ -78,9 +85,14 @@ public class SpreadsheetViewUI {
                 System.out.println("size of IRS.linkedHashMap " + IRS.linkedHashMap.size());
                 boolean result = TableGenerator.generateTable(IRS.linkedHashMap);
                 if (result) {
-
+                    try{
                     XMLGenerator xmlGenerator = new XMLGenerator();
                     result = xmlGenerator.generateXML4romExcel(IRS.linkedHashMap);
+                    }catch(ClassCastException | ClassNotFoundException | IllegalAccessException | InstantiationException | ParserConfigurationException | DOMException | LSException ex){
+                        
+                        result=false;
+                        LOGGER.log(org.apache.logging.log4j.Level.FATAL, "Error while generating XML",ex);
+                    }
                 }
                 if (result) {
 
@@ -96,6 +108,12 @@ public class SpreadsheetViewUI {
                     }
                     IRSDialog.showAlert("Creation of Returns", "The return has been created successfully");
                 }else{
+                    try {
+                            CreateTableDAO createTableDAO = new CreateTableDAO();
+                            createTableDAO.deleteTables(IRS.getCreatedTableNames());
+                        } catch (SQLException | PersistenceException | IOException ex1) {
+                            Logger.getLogger(SpreadsheetViewUI.class.getName()).log(Level.SEVERE, null, ex1);
+                        }
                     //Utility.showDialog("Creation of Returns", "Error!!! while creating the return", true);
                     IRSDialog.showAlert("Creation of Returns", "Error!!! while creating the return");
                     
@@ -104,13 +122,14 @@ public class SpreadsheetViewUI {
         });
         
         btn1.setOnAction(new EventHandler<ActionEvent>() {
-
+          
             @Override
             public void handle(ActionEvent event) {
-                //btn2.getScene().setRoot(IRS.getBasicInfoRoot());
+              for(int i=0;i<IRS.getHeaderInfoList().size();i++){
               AnchorPane previous=   ((AnchorPane)IRS.scene.lookup("#centerPane"));
               previous.getChildren().clear();
-              previous.getChildren().add(IRS.getHeaderInfo());
+              previous.getChildren().add((AnchorPane)IRS.getHeaderInfoList().get(i));
+              }
             }
         });
     }
