@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="539.0" style="-fx-background-color: #F2F2F2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.sct.controller.ListViewController">
+   <children>
+      <Label layoutX="153.0" layoutY="40.0" text="WorkCollection List" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="riCode" layoutX="213.0" layoutY="104.0" prefHeight="54.0" prefWidth="281.0" style="-fx-background-insets: 0; -fx-background-color: #E3EBE0; -fx-border-color: #007AC3;" />
+      <ComboBox layoutX="66.0" layoutY="234.0" prefHeight="50.0" prefWidth="442.0" style="-fx-background-insets: 0, 0 0 1 0; -fx-padding: 5; -fx-background-color: #CDCDCD;" />
+   </children>
+</AnchorPane>

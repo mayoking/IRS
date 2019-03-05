@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.ModificationUIController">
+   <children>
+      <ScrollPane layoutX="18.0" layoutY="22.0" AnchorPane.leftAnchor="18.0">
+         <content>
+            <AnchorPane fx:id="globalAchorPane" prefHeight="483.0" prefWidth="776.0" style="-fx-background-color: #D5E1E9;">
+               <children>
+                  <Label layoutX="96.0" layoutY="80.0" prefHeight="27.0" prefWidth="162.0" text="Modification Type" textFill="#464444">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="mType" layoutX="288.0" layoutY="71.0" prefHeight="45.0" prefWidth="293.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+                  <Label fx:id="selectWorkcollectionlabel" layoutX="6.0" layoutY="18.0" prefHeight="27.0" prefWidth="188.0" text="Select WorkCollection" textFill="#464444">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="selectReturnslabel" layoutX="438.0" layoutY="19.0" prefHeight="27.0" prefWidth="120.0" text="Select Return" textFill="#464444">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="returns" layoutX="572.0" layoutY="10.0" prefHeight="45.0" prefWidth="197.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+                  <ComboBox fx:id="workCollection" layoutX="206.0" layoutY="10.0" prefHeight="45.0" prefWidth="197.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+                  <AnchorPane fx:id="modificationPane" layoutY="200.0" prefHeight="298.0" prefWidth="778.0" />
+                  <!--<ComboBox fx:id="mTypeAssertion" layoutX="288.0" layoutY="137.0" prefHeight="45.0" prefWidth="293.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+                  <Label fx:id="mTypeAssertionLabel" layoutX="96.0" layoutY="146.0" prefHeight="27.0" prefWidth="162.0" text="Assertion Type" textFill="#464444">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>-->
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

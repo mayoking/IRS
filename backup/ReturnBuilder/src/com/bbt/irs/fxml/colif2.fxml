@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.IfOperatorController">
+   <children>
+      <ScrollPane>
+         <content>
+            <AnchorPane fx:id="lhs">
+                <children>
+                    <Separator layoutX="63.0" layoutY="215.0" prefHeight="3.0" prefWidth="660.0" />
+                    <Separator layoutX="507.0" layoutY="215.0" prefWidth="200.0" />
+                    <Separator layoutX="619.0" layoutY="216.0" orientation="VERTICAL" prefHeight="250.0" prefWidth="6.0" />
+                  <VBox layoutX="625.0" layoutY="236.0" spacing="2.0">
+                     <children>
+                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="104.0" text="Operator">
+                              <font>
+                                  <Font name="System Bold Italic" size="12.0" />
+                              </font>
+                          </Label>
+                        <HBox spacing="2.0">
+                           <children>
+                                <Button fx:id="add" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="39.0" text="+" />
+                                <Button fx:id="minus" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#subtractButton" prefHeight="25.0" prefWidth="39.0" text="-" />
+                                <Button fx:id="closeBracket" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#closeBracketButton" prefHeight="25.0" prefWidth="39.0" text=")" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="2.0">
+                           <children>
+                                <Button fx:id="mul" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#multiplicationButton" prefHeight="25.0" prefWidth="39.0" text="*" />
+                                <Button fx:id="div" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#divisionButton" prefHeight="25.0" prefWidth="39.0" text="/" />
+                                <Button fx:id="openBracket" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#openBracketButton" prefHeight="25.0" prefWidth="39.0" text="(" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="2.0">
+                           <children>
+                                <Button fx:id="average" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="39.0" text="avg" />
+                                <Button fx:id="sum" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="39.0" text="sum" />
+                              <Button fx:id="sum1" layoutX="51.0" layoutY="10.0" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="39.0" text="max" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                                    
+                    <Label id="labelBold" layoutX="57.0" layoutY="226.0" prefHeight="22.0" prefWidth="498.0" text="then">
+                        <font>
+                            <Font name="Arial Black" size="14.0" />
+                        </font>
+                    </Label>
+                    <HBox fx:id="lhsWorkCollandReturn" layoutX="48.0" layoutY="263.0" spacing="5.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="92.0" text="Sum of" />
+                            <ComboBox id="comboborder" fx:id="returns" prefHeight="27.0" prefWidth="104.0" />
+                        <Button fx:id="sum2" minHeight="25.0" minWidth="39.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="39.0" text="sum" />
+                        </children>
+                    </HBox>
+                  <VBox alignment="TOP_CENTER" layoutX="33.0" prefHeight="200.0" prefWidth="735.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="717.0" text="IF">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="107.0" prefWidth="735.0" spacing="10.0">
+                           <children>
+                              <VBox prefHeight="102.0" prefWidth="655.0" spacing="5.0">
+                                 <children>
+                                    <HBox fx:id="lhsWorkCollandReturn1" spacing="5.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="92.0" text="Types" />
+                                          <ComboBox id="comboborder" fx:id="returns1" prefHeight="27.0" prefWidth="310.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="lhsWorkCollandReturn11" layoutX="10.0" layoutY="10.0" spacing="5.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="92.0" text="Item Code" />
+                                          <ComboBox id="comboborder" fx:id="workColl11" prefHeight="27.0" prefWidth="104.0" />
+                                          <Label prefHeight="27.0" prefWidth="92.0" text="Field" />
+                                          <ComboBox id="comboborder" fx:id="returns11" prefHeight="27.0" prefWidth="104.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="lhsWorkCollandReturn12" layoutX="10.0" layoutY="10.0" spacing="5.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="92.0" text="Field" />
+                                          <ComboBox id="comboborder" fx:id="returns12" prefHeight="27.0" prefWidth="99.0" />
+                                          <Button minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="=" />
+                                          <TextField text="textfield" />
+                                          <Button minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="and" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="lhsWorkCollandReturn121" layoutX="10.0" layoutY="74.0" spacing="5.0">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="92.0" text="Field" />
+                                          <ComboBox id="comboborder" fx:id="returns121" prefHeight="27.0" prefWidth="99.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="102.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="225.0" text="Logic Connector">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="80.0" prefWidth="154.0" spacing="2.0">
+                                       <children>
+                                          <Button minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="and" />
+                                          <Button layoutX="10.0" layoutY="10.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="or" />
+                                          <Button layoutX="67.0" layoutY="10.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="=" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="32.0" prefHeight="80.0" prefWidth="135.0" spacing="2.0">
+                                       <children>
+                                          <Button minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="&lt;=" />
+                                          <Button layoutX="10.0" layoutY="10.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="&gt;=" />
+                                          <Button layoutX="67.0" layoutY="10.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="&lt;" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="70.0" prefHeight="80.0" prefWidth="135.0" spacing="2.0">
+                                       <children>
+                                          <Button minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="&gt;" />
+                                          <Button layoutX="10.0" layoutY="10.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="ok" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="48.0" layoutY="301.0" spacing="5.0" />
+                  <Button layoutX="697.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Ok" />
+                  <Button layoutX="625.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="cancel" />
+                    <!--<HBox layoutX="48.0" layoutY="297.0" spacing="5.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="92.0" text="Item Code" />
+                            <ComboBox id="comboborder" prefHeight="27.0" prefWidth="104.0" />
+                            <Label prefHeight="27.0" prefWidth="92.0" text="Columns" />
+                            <ComboBox id="comboborder" prefHeight="27.0" prefWidth="104.0" />
+                            <Button minHeight="25.0" minWidth="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="+" />
+                        </children>
+                    </HBox>
+                    <HBox layoutX="48.0" layoutY="328.0" spacing="5.0">
+                        <children>
+                            <Label prefHeight="27.0" prefWidth="92.0" text="Item Code" />
+                            <ComboBox id="comboborder" prefHeight="27.0" prefWidth="104.0" />
+                            <Label prefHeight="27.0" prefWidth="92.0" text="Columns" />
+                            <ComboBox id="comboborder" prefHeight="27.0" prefWidth="104.0" />
+                        </children>
+                    </HBox>-->
+                </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

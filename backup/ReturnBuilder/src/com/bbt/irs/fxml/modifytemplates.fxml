@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.ModifyTemplateController">
+   <children>
+      <AnchorPane layoutX="6.0" layoutY="24.0" prefHeight="489.0" prefWidth="776.0" style="-fx-background-color: #D5E1E9;" AnchorPane.leftAnchor="25.0">
+       <children>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="4.0" prefHeight="20.0" prefWidth="21.0" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="tables" layoutX="312.0" layoutY="19.0" prefHeight="39.0" prefWidth="288.0" stylesheets="@../resources/css/mystyle.css" />
+      <Label layoutX="108.0" layoutY="26.0" prefHeight="26.0" prefWidth="191.0" stylesheets="@../resources/css/mystyle.css" text="Select Table" />
+            <ComboBox fx:id="tempMod" layoutX="312.0" layoutY="83.0" prefHeight="39.0" prefWidth="288.0" stylesheets="@../resources/css/mystyle.css" />
+            <Label layoutX="108.0" layoutY="90.0" prefHeight="26.0" prefWidth="191.0" stylesheets="@../resources/css/mystyle.css" text="Modify ?" />
+            <TextField fx:id="cols" layoutX="312.0" layoutY="147.0" prefHeight="39.0" prefWidth="288.0" minWidth="288.0" stylesheets="@../resources/css/mystyle.css" />
+            <Label fx:id="mod" layoutX="108.0" layoutY="147.0" prefHeight="26.0" prefWidth="191.0" stylesheets="@../resources/css/mystyle.css" text="How many Columns?" />
+            <Button fx:id="submit" layoutX="377.0" layoutY="206.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="159.0" text="Submit" onAction="#submit" />
+   </children>
+</AnchorPane>
+   </children>
+</AnchorPane>

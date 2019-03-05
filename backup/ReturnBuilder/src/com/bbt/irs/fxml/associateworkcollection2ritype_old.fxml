@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.WorkColRiTypeMappingController">
+   <children>
+      <AnchorPane layoutX="6.0" layoutY="24.0" prefHeight="204.0" prefWidth="776.0" style="-fx-background-color: #D5E1E9;" stylesheets="@../resources/css/mystyle.css">
+       <children>
+      <Pane layoutY="75.0" prefHeight="427.0" prefWidth="539.0" style="-fx-background-color: #D5E1E9;">
+         <children>
+            <Separator layoutX="62.0" layoutY="312.0" opacity="0.15" prefHeight="3.0" prefWidth="423.0" />
+            <Separator layoutX="54.0" layoutY="36.0" opacity="0.15" prefHeight="3.0" prefWidth="423.0" />
+            <Button fx:id="wkCancel" layoutX="259.0" layoutY="351.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="35.0" prefWidth="108.0" stylesheets="@../resources/css/justbutton.css" text="CANCEL" textFill="WHITE" />
+            <Button fx:id="okButton" layoutX="405.0" layoutY="349.0" mnemonicParsing="false" onAction="#submitAction" prefHeight="34.0" prefWidth="112.0" stylesheets="@../resources/css/justbutton.css" text="OK" textFill="WHITE" />
+            <ListView fx:id="wklistView" layoutX="23.0" opacity="0.78" prefHeight="333.0" prefWidth="733.0" />
+         </children>
+      </Pane>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="4.0" prefHeight="20.0" prefWidth="21.0" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="workCollection" layoutX="312.0" layoutY="19.0" prefHeight="39.0" prefWidth="288.0" stylesheets="@../resources/css/mystyle.css" />
+      <Label layoutX="141.0" layoutY="29.0" prefHeight="26.0" prefWidth="158.0" text="Select WorkCollection" />
+   </children>
+</AnchorPane>
+   </children>
+</AnchorPane>

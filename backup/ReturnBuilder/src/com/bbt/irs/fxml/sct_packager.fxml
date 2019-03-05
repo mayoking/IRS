@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.SctPackagerController">
+   <children>
+      <AnchorPane layoutX="25.0" layoutY="18.0" prefHeight="368.0" prefWidth="791.0" style="-fx-background-color: #D5E1E9;" stylesheets="@../resources/css/justbutton.css" AnchorPane.leftAnchor="25.0">
+         <children>
+                 <ComboBox fx:id="riType" layoutX="235.0" layoutY="17.0" prefHeight="45.0" prefWidth="375.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+            <Label layoutX="39.0" layoutY="26.0" prefHeight="27.0" prefWidth="143.0" text="Select Ritype" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="104.0" prefHeight="27.0" prefWidth="143.0" text="SCT Launch Date" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datePicker" id="datepicker" layoutX="235.0" layoutY="93.0" prefHeight="45.0" prefWidth="375.0" />
+            <Button fx:id="submit" layoutX="317.0" layoutY="290.0" mnemonicParsing="false" onAction="#addAction2SubmitButton" prefHeight="45.0" prefWidth="165.0" text="Submit" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="39.0" layoutY="198.0" prefHeight="27.0" prefWidth="165.0" text="Notes" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="notes" layoutX="235.0" layoutY="171.0" prefHeight="82.0" prefWidth="375.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

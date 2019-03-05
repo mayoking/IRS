@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.WorkCollRiTypeMappingController">
+   <children>
+      <AnchorPane layoutX="4.0" layoutY="24.0" prefHeight="506.0" prefWidth="836.0" style="-fx-background-color: #D5E1E9;" AnchorPane.leftAnchor="4.0">
+       <children>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="4.0" prefHeight="20.0" prefWidth="21.0" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="riTypeCollection" layoutX="312.0" layoutY="19.0" prefHeight="39.0" prefWidth="288.0" stylesheets="@../resources/css/mystyle.css" />
+      <Label layoutX="141.0" layoutY="26.0" prefHeight="26.0" prefWidth="158.0" stylesheets="@../resources/css/mystyle.css" text="Select RI Type" />
+   </children>
+</AnchorPane>
+      <AnchorPane fx:id="modificationPane" layoutX="6.0" layoutY="94.0" prefHeight="426.0" prefWidth="810.0" />
+   </children>
+</AnchorPane>

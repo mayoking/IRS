@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.DeactivateReturnController">
+   <children>
+      <AnchorPane layoutX="-16.0" layoutY="14.0" prefHeight="204.0" prefWidth="776.0" style="-fx-background-color: #D5E1E9;" stylesheets="@../resources/css/justbutton.css">
+         <children>
+                 <ComboBox fx:id="workCollection" layoutX="235.0" layoutY="31.0" prefHeight="45.0" prefWidth="375.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+            <Label layoutX="44.0" layoutY="40.0" prefHeight="27.0" prefWidth="143.0" text="WorkCollection" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="submit" layoutX="373.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleXSDXMLSubmitAction" text="Submit" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="returns" layoutX="235.0" layoutY="109.0" prefHeight="45.0" prefWidth="375.0" style="-fx-background-insets: 0; -fx-padding: 0; -fx-background-color: #F4F4F4; -fx-border-color: #CDCDCD;" />
+            <Label layoutX="44.0" layoutY="96.0" prefHeight="27.0" prefWidth="143.0" text="Return:" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="176.0" prefHeight="27.0" prefWidth="143.0" text="Validity Date" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="validityDate" layoutX="235.0" layoutY="181.0" prefHeight="45.0" prefWidth="375.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

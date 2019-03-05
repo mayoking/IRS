@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.UploadRestrictionData">
+   <children>
+      <AnchorPane layoutX="-16.0" layoutY="14.0" prefHeight="298.0" prefWidth="776.0" style="-fx-background-color: #D5E1E9;" AnchorPane.leftAnchor="25.0">
+         <children>
+            <Label layoutX="105.0" layoutY="89.0" prefHeight="27.0" prefWidth="143.0" text="RestrictionCode" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="105.0" layoutY="164.0" prefHeight="27.0" prefWidth="189.0" text="Restriction Description" textFill="#464444">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="submit" layoutX="324.0" layoutY="236.0" mnemonicParsing="false" onAction="#uploadExcel" prefHeight="45.0" prefWidth="165.0" style="-fx-background-color: #afcce0; -fx-max-width: 165; -fx-min-width: 165; -fx-pref-width: 165;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="restrictioncode" layoutX="314.0" layoutY="80.0" prefHeight="45.0" prefWidth="375.0" style="-fx-max-width: 375; -fx-min-width: 375; -fx-pref-width: 375;" />
+            <TextField fx:id="restrictionDescription" layoutX="314.0" layoutY="155.0" prefHeight="45.0" prefWidth="375.0" style="-fx-max-width: 375; -fx-min-width: 375; -fx-pref-width: 375;" />
+            <TextField id="uploadpathtextbox" fx:id="uploadpathtextbox" layoutX="101.0" layoutY="8.0" prefHeight="45.0" prefWidth="476.0" style="-fx-max-width: 475; -fx-min-width: 475; -fx-pref-width: 475;" />
+            <Button id="browseupload" fx:id="browseupload" onAction="#upload4XLS" layoutX="578.0" layoutY="8.0" mnemonicParsing="false" opacity="0.6" prefHeight="45.0" prefWidth="104.0" style="-fx-max-width: 104; -fx-min-width: 104; -fx-pref-width: 104; -fx-background-color: #afcce0;" text="Browse">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

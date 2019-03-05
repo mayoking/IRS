@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="borderpane" fx:id="loginId" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.LoginController">
+  <center>
+    <VBox>
+      <!--
+              <Text text="Lagos State Residents Registration System" id="welcome-text"
+            GridPane.columnIndex="0" GridPane.rowIndex="0"
+            GridPane.columnSpan="2"/>   -->
+      <padding>
+        <Insets bottom="10.0" left="25.0" right="25.0" top="100.0" />
+      </padding>
+       <children>
+         <!-- <ImageView fx:id="imageBox" fitHeight="16.696969726451766" fitWidth="193.33333587646484" layoutX="135.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" >
+                   <image>
+                       <Image url="@/com/fasyl/lasrra/fx/ajaxloadingbar.gif" preserveRatio="false" smooth="false" />
+                   </image>
+               </ImageView> -->
+         <ProgressIndicator fx:id="loading" progress="0.0" />
+         <HBox alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                   <children>
+                 <Label fx:id="loadingText" style="-fx-text-fill:RED" text="Loading Please wait..." GridPane.columnIndex="0" GridPane.rowIndex="0" /> 
+                 <ImageView fx:id="imagebox" fitHeight="70.5" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <image>
+                             <Image preserveRatio="false" smooth="false" url="@/com/bbt/irs/resources/images/ajaxloadingbar.gif" />
+                    </image>
+                     </ImageView>
+                   </children>   
+            </HBox>
+              <Label text="Version " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+              <Label fx:id="version" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            </children>
+         </HBox>
+         
+         <GridPane id="test" fx:id="gridLogin" alignment="CENTER" hgap="10.0" vgap="10.0">
+            <children>
+              <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+              <Label text="User Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+              <TextField fx:id="userId" maxHeight="25.0" maxWidth="150.0" minHeight="20.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+              <PasswordField fx:id="password" maxWidth="150.0" prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+             <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <children>
+                   <Button onAction="#handleSubmitButtonAction" text="Sign In" />
+                </children>
+              </HBox>
+            </children>
+           <columnConstraints>
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+           </columnConstraints>
+           <padding>
+             <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+           </padding>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+           </rowConstraints>
+             
+         </GridPane>
+       </children>
+    </VBox>
+  </center>
+</BorderPane>

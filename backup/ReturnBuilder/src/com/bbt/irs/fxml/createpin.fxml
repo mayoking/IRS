@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="491.0" style="-fx-background-color: #007ac3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.PinAssignmentController">
+   <children>
+      <Pane layoutY="75.0" prefHeight="355.0" prefWidth="491.0" style="-fx-background-color: #D5E1E9;">
+         <children>
+            <Label layoutX="54.0" layoutY="93.0" text="Pin " textFill="#007ac3">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="169.0" text="Confirm Pin" textFill="#007ac3">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Separator layoutX="62.0" layoutY="312.0" opacity="0.15" prefHeight="3.0" prefWidth="423.0" />
+            <Separator layoutX="54.0" layoutY="36.0" opacity="0.15" prefHeight="3.0" prefWidth="423.0" />
+            <Button fx:id="submit" layoutX="190.0" layoutY="255.0" mnemonicParsing="false" onAction="#pinSubmitAction" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #007ac3;" text="CREATE PIN" textFill="WHITE" />
+            <TextField fx:id="token" layoutX="180.0" layoutY="165.0" prefHeight="34.0" prefWidth="281.0" style="-fx-border-color: #007AC3; -fx-background-color: #E3EBE0; -fx-background-insets: 0; " styleClass="text-input" stylesheets="@style.css" />
+            <TextField fx:id="confirmToken" layoutX="178.0" layoutY="89.0" prefHeight="34.0" prefWidth="281.0" style="-fx-border-color: #007AC3; -fx-background-color: #E3EBE0; -fx-background-insets: 0; " styleClass="text-input" stylesheets="@style.css" />
+         </children>
+      </Pane>
+      <Label layoutX="96.0" layoutY="40.0" text="SMART CLIENT CREATE PIN" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="515.0" layoutY="4.0" prefHeight="20.0" prefWidth="21.0" textFill="#ddd9d9">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Accordion id="menuContent" style="-fx-background-color: #D5E1E9; -fx-border-color: #A6A6A6;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.MenuController">
+        <panes>
+    
+   
+       <!--  <fx:reference source="x2" />-->
+       
+        <TitledPane animated="true" style="-fx-background-color: #D5E1E9;" text="Return Setup" fx:id="x2">
+            <graphic>
+                <ImageView>
+                    <Image url="@../resources/images/cogwheel.png" />
+                </ImageView>
+            </graphic>
+            <content>
+                <VBox id="Content" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="177.0" spacing="15.0" style="-fx-background-color: #D5E1E9;">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                     <Button id="menubutton" fx:id="basicInfoClick" mnemonicParsing="false" onAction="#addBasicInfo" prefHeight="31.0" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="Basic Info">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/basic-info.png" />
+                            </ImageView>
+                        </graphic>   
+                    </Button> 
+                     <Button id="menubutton" fx:id="uploadTempClick" mnemonicParsing="false" onAction="#uploadXLS" prefHeight="31.0" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="Upload Template">
+                   
+                        <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/upload-return.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>  
+                   
+                     <Button id="menubutton" fx:id="confirmInputClick" mnemonicParsing="false" prefHeight="40" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="Confirm Input">
+                   
+                        <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/confirm-input.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button id="menubutton" fx:id="viewstaticHClick" mnemonicParsing="false" onAction="#viewStaticHeaders" prefHeight="40" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="Header Info">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/header-info.png" />
+                            </ImageView>
+                        </graphic>   
+                    </Button>
+                   
+                    
+                </VBox>
+            </content>
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+        </TitledPane>
+        <TitledPane animated="false" prefHeight="464.0" prefWidth="240.0" text="Return Management" fx:id="x4">
+            <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/return-man.png" />
+                            </ImageView>
+                        </graphic>
+            <content>
+                <VBox id="Content" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0" style="-fx-background-color: #D5E1E9;">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                      <Button fx:id="associateRiTypeClick" alignment="TOP_LEFT" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#associateRiType" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="WC RI Type Map">
+                          <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/ritype-mappin.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>    
+               <Button fx:id="updateReturnClick" alignment="TOP_LEFT" layoutX="28.0" layoutY="288.0" mnemonicParsing="false" onAction="#updateReturnClick" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="WC RI VIEW">
+                  <graphic>
+                     <ImageView>
+                        <image>
+                           <Image url="@../resources/images/wc-ri-manage.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button fx:id="addReturnMatrix" alignment="TOP_LEFT" layoutX="16.0" layoutY="20.0" mnemonicParsing="false" onAction="#addReturnMatrix" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Add Return Dependency">
+                  <graphic>
+                     <ImageView>
+                        <image>
+                           <Image url="@../resources/images/deactivate.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button fx:id="manageReturnMatrix" alignment="TOP_LEFT" layoutX="42.0" layoutY="154.0" mnemonicParsing="false" onAction="#manageReturnMatrix" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Manage Dependency">
+                  <graphic>
+                     <ImageView>
+                        <image>
+                           <Image url="@../resources/images/deactivate.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button fx:id="deactivateReturnClick" alignment="TOP_LEFT" layoutX="42.0" layoutY="154.0" mnemonicParsing="false" onAction="#deactivateReturn" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Deactivate Returns">
+                  <graphic>
+                     <ImageView>
+                        <image>
+                           <Image url="@../resources/images/deactivate.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button fx:id="restriction" alignment="TOP_LEFT" layoutX="28.0" layoutY="355.0" mnemonicParsing="false" onAction="#loadRestrictionData" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Restriction Data">
+                  <graphic>
+                     <ImageView>
+                        <image>
+                           <Image url="@../resources/images/restriction-data.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button> 
+                      <!--  <Button layoutX="14.0" layoutY="58.0" mnemonicParsing="false" prefWidth="172.0" wrapText="true" text="Install new Version" >
+                        <graphic>
+                            <ImageView >
+                                <Image url="@/com/bb/irs/InstallUpdate.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button> -->   
+                </VBox>
+               
+            </content>
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+        </TitledPane>
+      <TitledPane animated="false" layoutX="11.0" layoutY="55.0" text="XML/XSD Management" fx:id="x5">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../resources/images/return-man.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <content>
+            <VBox id="Content" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0" style="-fx-background-color: #D5E1E9;">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="generateXmlXsdClick" alignment="TOP_LEFT" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#generateXmlXsd" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Generate XML/XSD">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/images/generate-xml-xsd.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="viewxmlXsdClick" alignment="TOP_LEFT" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#viewxmlXsd" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="View XML/XSD">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/images/view-xml-or-xsd.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="updateXmlxsdClick" alignment="TOP_LEFT" layoutX="16.0" layoutY="20.0" mnemonicParsing="false" onAction="#updateXmlxsd" prefWidth="174.0" stylesheets="@../resources/css/mystyle.css" text="Modify Returns">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/images/modify-returns.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </content>
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </TitledPane>
+        <TitledPane fx:id="rm" animated="false" text="SCT Manager">
+      
+       
+            <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/sct-man.png" />
+                            </ImageView>
+                        </graphic>
+                   
+            <content>
+                <VBox id="Content" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0" style="-fx-background-color: #D5E1E9;">
+                     <padding>
+                             <Insets top="10.0" />
+                     </padding>
+                        <Button fx:id="loadSCTGeneratorClick" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadSCTGenerator" prefWidth="172.0" stylesheets="@../resources/css/mystyle.css" text="SCT Sync/Generator">
+                            <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/synchronize-sct.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>   
+                        <Button fx:id="loadSCTPackageClick" alignment="TOP_LEFT" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#loadSCTPackage" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="SCT Packager">
+                              <graphic>
+                            <ImageView>
+                                <Image url="@../resources/images/packager.png" />
+                            </ImageView>
+                        </graphic>
+                        </Button>               
+                </VBox>
+            </content>
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+        </TitledPane>
+      <TitledPane fx:id="rm1" animated="false" layoutX="11.0" layoutY="143.0" text="IRS Loader">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../resources/images/sct-man.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <content>
+            <VBox id="Content" alignment="TOP_CENTER" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="175.0" spacing="15.0" style="-fx-background-color: #D5E1E9;">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <children>
+                  <!--<Button fx:id="reloadsubmissionclick" alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#reloadSubmission" prefWidth="172.0" stylesheets="@../resources/css/mystyle.css" text="Reload Submission">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/images/synchronize-sct.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>-->
+                  <Button fx:id="processedresultclick" alignment="TOP_LEFT" layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#processedResult" prefWidth="175.0" stylesheets="@../resources/css/mystyle.css" text="Sync Extractor">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@../resources/images/packager.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </content>
+         <font>
+            <Font name="Serif Regular" size="16.0" />
+         </font>
+      </TitledPane>
+        
+    </panes>
+                
+</Accordion>

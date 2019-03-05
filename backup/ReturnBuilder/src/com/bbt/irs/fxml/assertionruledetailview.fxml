@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #D5E1E9;;" stylesheets="@../resources/css/mystyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bbt.irs.controller.Assertionruledetailviewcontroller">
+    <children>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+              <Label alignment="CENTER" prefHeight="38.0" prefWidth="536.0" text="Assertion Rule Details">
+                  <font>
+                      <Font name="System Bold" size="18.0" />
+                  </font>
+              </Label>
+            <HBox>
+               <children>
+                    <Label prefHeight="38.0" prefWidth="176.0" text="Alias" />
+                  <TextField fx:id="alias" prefHeight="38.0" prefWidth="309.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                    <Label prefHeight="38.0" prefWidth="176.0" text="Connector" />
+                  <TextField fx:id="connector" prefHeight="38.0" prefWidth="309.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                    <Label prefHeight="38.0" prefWidth="176.0" text="Messages" />
+                  <ScrollPane prefHeight="100.0" prefWidth="499.0">
+                     <content>
+                          <!--<TextArea fx:id="message" layoutX="235.0" layoutY="200.0" prefHeight="94.0" prefWidth="241.0" />-->
+                          <TextFlow prefHeight="90.0" prefWidth="450.0">
+                              <Text fx:id="message" text="" />
+                          </TextFlow>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                    <Label prefHeight="38.0" prefWidth="176.0" text="Error Messages" />
+                  <ScrollPane prefHeight="100.0" prefWidth="499.0">
+                     <content>
+                        <TextFlow prefHeight="90.0" prefWidth="450.0">
+                           <children>
+                              <Text fx:id="errorMessage" text="" />
+                           </children>
+                        </TextFlow>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                    <Label prefHeight="38.0" prefWidth="176.0" text="Assertion Messages" />
+                  <ScrollPane prefHeight="100.0" prefWidth="499.0">
+                     <content>
+                        <TextFlow prefHeight="90.0" prefWidth="450.0">
+                           <children>
+                              <Text fx:id="assertionRule" text="" />
+                           </children>
+                        </TextFlow>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
